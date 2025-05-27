@@ -12,4 +12,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+  get "account", to: "pages#account", as: :account
+
+  resources :meals, only: [:show, :index, :new, :create, :destroy] do
+    resources :portions, only: [:create]
+  end
+  resources :portions, only: [:destroy, :update]
+  resources :ingredients, only: [ :create ]
 end
