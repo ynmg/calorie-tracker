@@ -13,6 +13,30 @@ Ingredient.destroy_all
 Portion.destroy_all
 
 puts "Creating users..."
-user1 = User.new(email:"abc@example", password:"abcdef")
-user2 = User.new(email:"123@example", password:"123456")
+user1 = User.create!(email:"abc@example", password:"abcdef")
+user2 = User.create!(email:"123@example", password:"123456")
 puts "#{User.count} users created"
+
+puts "Creating meals..."
+meal1 = Meal.create!(name: "breakfast", date: "2025-07-02", user: user1)
+meal2 = Meal.create!(name: "lunch", date: "2025-07-30", user: user1)
+puts "#{Meal.count} meals created"
+
+puts "Creating ingredients..."
+ingredient1 = Ingredient.create!(name: "oats", calories: 52)
+ingredient2 = Ingredient.create!(name: "milk", calories: 64)
+ingredient3 = Ingredient.create!(name: "salmon", calories: 55)
+ingredient4 = Ingredient.create!(name: "lettuce", calories: 14)
+ingredient5 = Ingredient.create!(name: "konjac noodles", calories: 7)
+
+puts "#{Ingredient.count} ingredients created"
+
+
+puts "creating portions..."
+portion1 = Portion.create!(quantity: 50, meal: meal1, ingredient: ingredient1)
+portion2 = Portion.create!(quantity: 150, meal: meal1, ingredient: ingredient2)
+portion3 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient3)
+portion4 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient4)
+portion5 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient5)
+
+puts "#{Portion.count} portions created"
