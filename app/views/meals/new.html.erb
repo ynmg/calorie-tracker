@@ -1,0 +1,8 @@
+<h1>Meals Form</h1>
+
+<%= simple_form_for @meal do |f| %>
+  <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+  <%= f.input :date %>
+  <%= f.submit %>
+
+<% end %>
