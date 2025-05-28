@@ -5,7 +5,7 @@
   <%= f.input :date %>
   <%= f.simple_fields_for :portions do |portion_fields| %>
     <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
-    <%= portion_fields.input :quantity %>
+    <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
   <% end %>
   <%= f.submit %>
 
