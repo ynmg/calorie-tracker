@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :user, uniqueness: true
-  validates :email, uniquesness: true
+  validates :email, uniqueness: true
 
   has_many :meals, dependent: :destroy
 end
