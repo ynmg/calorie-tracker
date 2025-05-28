@@ -3,6 +3,10 @@
 <%= simple_form_for @meal do |f| %>
   <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
   <%= f.input :date %>
+  <%= f.simple_fields_for :portions do |portion_fields| %>
+    <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+    <%= portion_fields.input :quantity %>
+  <% end %>
   <%= f.submit %>
 
 <% end %>
