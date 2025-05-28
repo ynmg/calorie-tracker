@@ -1,3 +1,4 @@
+
 .kpi-circle {
       width: 100px;
       height: 100px;
@@ -17,9 +18,41 @@
   align-items: flex-end;
 }
 
+.card-rule {
+  margin: 50px;
+  background-color: rgba(219,215,210,0.4);
+  background-image: url(https://i.sstatic.net/kb0Zm.jpg);
+  width: 220px;
+  height: 234px;
+  padding: 16px;
+  border-radius: 2px;
+  font-family: Nunito, Helvetica, "sans-serif";
+  h5 {
+    text-align: center;
+    font-weight:bolder;
+    font-size: 23px;
+  }
+  h4 {
+    color: black;
+    font-size: large;
+    text-align: center;
+  }
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(67, 94, 73, 0.7);
+}
+
 .two-buttons {
+  background-image: url('../assets/images/perfectly_even_perforated_pattern.png');
+  background-position: center;
   height: 60vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  .btn {
+    border-radius: 5px;
+    margin: 16px;
+  }
+  background: linear-gradient(to right, rgb(147, 174, 153), rgb(67,94,73) );
+  background-size: cover;
+  background-repeat: repeat;
 }
