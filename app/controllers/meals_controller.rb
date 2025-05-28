@@ -1,6 +1,14 @@
 class MealsController < ApplicationController
   def index
-    @meals = current_user.meals
+    @todays_meals = current_user.meals.where(date: "2025-05-28")
+
+    @calorie_breakdown = @todays_meals.includes(:portions => :ingredient).map do |meal|
+    {
+      meal_name: meal.name,
+      calories: meal.portions.sum { |portion| portion.ingredient.calories * portion.quantity }
+    }
+    end
+  @total_calories = @calorie_breakdown.sum { |m| m[:calories] }
   end
 
   def new
@@ -23,5 +31,4 @@ class MealsController < ApplicationController
   def meal_params
     params.require(:meal).permit(:name, :date)
   end
-
 end

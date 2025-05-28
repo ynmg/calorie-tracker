@@ -1,0 +1,11 @@
+<h2>Today's Calorie Breakdown</h2>
+
+<ul>
+  <% @calorie_breakdown.each do |breakdown| %>
+    <li>
+      <strong><%= breakdown[:meal_name] %></strong>: <%= breakdown[:calories] %> kcal
+    </li>
+  <% end %>
+</ul>
+
+<p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
