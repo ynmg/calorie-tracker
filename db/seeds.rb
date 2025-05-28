@@ -18,8 +18,12 @@ user2 = User.create!(email:"123@example", password:"123456")
 puts "#{User.count} users created"
 
 puts "Creating meals..."
-meal1 = Meal.create!(name: "breakfast", date: "2025-07-02", user: user1)
-meal2 = Meal.create!(name: "lunch", date: "2025-07-30", user: user1)
+meal1 = Meal.create!(name: "breakfast", date: "2025-05-28", user: user1)
+meal2 = Meal.create!(name: "lunch", date: "2025-05-28", user: user1)
+meal3 = Meal.create!(name: "dinner", date: "2025-05-28", user: user1)
+meal4 = Meal.create!(name: "snack", date: "2025-05-28", user: user1)
+meal5 = Meal.create!(name: "snack", date: "2025-05-28", user: user1)
+meal6 = Meal.create!(name: "snack", date: "2025-05-28", user: user1)
 puts "#{Meal.count} meals created"
 
 puts "Creating ingredients..."

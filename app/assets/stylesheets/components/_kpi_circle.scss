@@ -21,7 +21,8 @@
 .card-rule {
   margin: 50px;
   background-color: rgba(219,215,210,0.4);
-  background-image: url(https://i.sstatic.net/kb0Zm.jpg);
+  // background-image: asset-url('perforations_imperfect.png');
+  background-size: contain;
   width: 220px;
   height: 234px;
   padding: 16px;
@@ -37,12 +38,16 @@
     font-size: large;
     text-align: center;
   }
+  .card-rule-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   justify-content: center;
   box-shadow: 0 4px 8px rgba(67, 94, 73, 0.7);
 }
 
 .two-buttons {
-  background-image: url('../assets/images/perfectly_even_perforated_pattern.png');
   background-position: center;
   height: 60vh;
   display: flex;
