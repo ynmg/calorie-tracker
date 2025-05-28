@@ -8,7 +8,8 @@ class MealsController < ApplicationController
       calories: meal.portions.sum { |portion| portion.ingredient.calories * portion.quantity }
     }
     end
-  @total_calories = @calorie_breakdown.sum { |m| m[:calories] }
+    @total_calories = @calorie_breakdown.sum { |m| m[:calories] }
+
   end
 
   def new

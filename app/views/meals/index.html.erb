@@ -9,3 +9,13 @@
 </ul>
 
 <p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
+
+
+<h3>Breakfast: </h3>
+<% breakfast = current_user.meals.find_by(name: "Breakfast", date: "2025-05-28") %>
+<%# should use date: Date.today %>
+  <% if breakfast.present? %>
+    <% breakfast.ingredients.each do |ingredient| %>
+      <P><%= ingredient.name %> | calories: <%= ingredient.calories %></p>
+    <% end %>
+  <% end %>
