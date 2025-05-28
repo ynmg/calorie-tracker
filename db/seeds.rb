@@ -13,7 +13,7 @@ Ingredient.destroy_all
 Portion.destroy_all
 
 puts "Creating users..."
-user1 = User.create!(email: "abc@example", password: "abcdef")
+user1 = User.create!(email: "abc@example", password: "abcdef", username: "ABC")
 user2 = User.create!(email: "123@example", password: "123456")
 puts "#{User.count} users created"
 
