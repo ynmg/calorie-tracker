@@ -13,6 +13,9 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
+    3.times do
+      @meal.portions.build
+    end
   end
 
   def create
@@ -29,6 +32,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:name, :date)
+    params.require(:meal).permit(:name, :date, portions_attributes:[:quantity, :ingredient_id])
   end
 end

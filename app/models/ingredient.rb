@@ -3,4 +3,5 @@ class Ingredient < ApplicationRecord
   validates :calories, presence: true, numericality: {greater_than_or_equal_to: 0}
 
   has_many :portions
+  has_many :meals, through: :portions
 end

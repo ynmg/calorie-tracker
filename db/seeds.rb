@@ -32,9 +32,7 @@ ingredient2 = Ingredient.create!(name: "milk", calories: 64)
 ingredient3 = Ingredient.create!(name: "salmon", calories: 55)
 ingredient4 = Ingredient.create!(name: "lettuce", calories: 14)
 ingredient5 = Ingredient.create!(name: "konjac noodles", calories: 7)
-
 puts "#{Ingredient.count} ingredients created"
-
 
 puts "creating portions..."
 portion1 = Portion.create!(quantity: 50, meal: meal1, ingredient: ingredient1)
@@ -42,5 +40,4 @@ portion2 = Portion.create!(quantity: 150, meal: meal1, ingredient: ingredient2)
 portion3 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient3)
 portion4 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient4)
 portion5 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient5)
-
 puts "#{Portion.count} portions created"
