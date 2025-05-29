@@ -1,19 +1,31 @@
 
 .kpi-circle {
-      width: 100px;
-      height: 100px;
-      background-image: linear-gradient(rgba(38,61,39,0.8),rgba(38,61,39,0.8)), url(asset-url('perforations_imperfect.png'));
+      width: 120px;
+      height: 120px;
+      background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
+      background-size: 110%;
+      background-position: center;
       border-radius: 50%;
-      font-size: 24px;
+      font-family: Nunito, Helvetica, "sans-serif";
+      font-size: 36px;
       font-weight: bold;
       color: white;
       text-align: center;
-      line-height: 100px;
+      line-height: 120px;
       margin: 100px;
     }
 
+  .favicon {
+      width: 20px;
+      height: 20px;
+      background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
+      border-radius: 50%;
+      background-position: center;
+      background-size: 110%;
+  }
+
 .page-with-kpi {
-  height: 30vh;
+  height: 24vh;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -21,12 +33,14 @@
 
 .card-rule {
   margin: 50px;
-  background-color: rgba(219,215,210,0.4);
+  background-color: rgba(219,215,210,0.6);
+  background-image: linear-gradient(rgba(219,215,210,0.6),rgba(219,215,210,0.6)), asset-url('transparent_paper_texture.png');
+  // background-image: asset-url('transparent_paper_texture.png');
   background-size: contain;
   width: 220px;
   height: 234px;
   padding: 16px;
-  border-radius: 2px;
+  border-radius: 4px;
   font-family: Nunito, Helvetica, "sans-serif";
   h5 {
     text-align: center;
@@ -49,7 +63,7 @@
 
 .two-buttons {
   background-position: center;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
