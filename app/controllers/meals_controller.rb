@@ -4,6 +4,7 @@ class MealsController < ApplicationController
 
     @calorie_breakdown = @todays_meals.includes(:portions => :ingredient).map do |meal|
     {
+      id: meal.id,
       meal_name: meal.name,
       calories: meal.portions.sum { |portion| portion.ingredient.calories * portion.quantity }
     }
@@ -27,6 +28,12 @@ class MealsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+    redirect_to meals_path
   end
 
   private
