@@ -1,12 +1,17 @@
 <h1>Meals Form</h1>
 
 <%= simple_form_for @meal do |f| %>
-  <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
   <%= f.input :date %>
-  <%= f.simple_fields_for :portions do |portion_fields| %>
-    <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
-    <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
-  <% end %>
-  <%= f.submit %>
+  <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+  <div data-controller="toggle">
+    <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Add Food/Drink</button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= f.simple_fields_for :portions do |portion_fields| %>
+          <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+          <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+        <% end %>
+        <%= f.submit "Add" %>
+      </div>
+  </div>
 
 <% end %>

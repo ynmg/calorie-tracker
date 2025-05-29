@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-def index
+  def index
     @todays_meals = current_user.meals.where(date: Date.today)
 
     @calorie_breakdown = []
@@ -29,9 +29,10 @@ def index
 
   def new
     @meal = Meal.new
-    3.times do
+    1.times do
       @meal.portions.build
     end
+    @ingredients = Ingredient.all
   end
 
   def create
@@ -43,6 +44,12 @@ def index
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+    redirect_to meals_path
   end
 
   private
