@@ -6,7 +6,7 @@
     <li>
       <strong><%= breakdown[:meal_name] %></strong>: <%= breakdown[:calories] %> kcal
     </li>
-    <%= link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
+    <!--<p> link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" </p>-->
   <% end %>
 </ul>
 
@@ -66,5 +66,3 @@
     <p><strong>Total for snacks:   kcal</strong></p>
   <% end %>
 </div>
-
-
