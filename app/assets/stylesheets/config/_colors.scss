@@ -17,3 +17,18 @@ $medium_green: #73946B;
 $light_green: #9EBC8A;
 // rgb(210, 208, 160)
 $beige: #D2D0A0;
+$bright_green: rgb(17, 174, 80);
+
+::placeholder {
+  color: $dark_green;
+ // opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: $dark_green;
+}
+
+input::placeholder {
+  color: $dark_green;
+  opacity: 0.5;
+}
