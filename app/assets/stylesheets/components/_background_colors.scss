@@ -27,7 +27,20 @@
   width: 100%;
 }
 
+.btn-signup-option {
+      background: linear-gradient(to right, #9EBC8A, #537D5D );
+      color: white;
+      border: none;
+      border-radius: 7px;
+      width: 100%;
+  }
+
+
 .btn-signup:hover {
+  color: #3a4e3f;   /* slightly darker on hover */
+}
+
+.btn-signup-option:hover {
   color: #3a4e3f;   /* slightly darker on hover */
 }
 

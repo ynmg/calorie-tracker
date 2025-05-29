@@ -42,6 +42,24 @@
   padding: 20px;
 }
 
+.form-styled-portion {
+  font-family: Nunito, Helvetica, "sans-serif";
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  width: 480px;
+  height: 392px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: space-beween;
+  h2 {
+    text-align: left;
+    color: darkolivegreen;
+  }
+  padding: 20px;
+}
+
 
 
 .tab-entry {
@@ -72,5 +90,8 @@
   display:flex;
   text-align: left;
   padding: 8px;
-  color: #3a4e3f
+  color: #3a4e3f;
+  link_to {
+    text-align: center;
+  }
 }
