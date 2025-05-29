@@ -9,3 +9,58 @@
 </ul>
 
 <p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
+<<<<<<< Updated upstream
+=======
+
+<div class="breakfast-breakdown">
+  <h3>Breakfast: </h3>
+  <% breakfast = current_user.meals.find_by(name: "Breakfast", date: "2025-05-28") %>
+  <%# should use date: Date.today %>
+  <% if breakfast.present? %>
+    <% breakfast.ingredients.each do |ingredient| %>
+      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% end %>
+    <p><strong>Total for breakfast:   kcal</strong></p>
+  <% end %>
+</div>
+
+<div class="lunch-breakdown">
+  <% lunch = current_user.meals.find_by(name: "Lunch", date: "2025-05-28") %>
+  <%# should use date: Date.today %>
+  <% if lunch.present? %>
+    <h3>Lunch: </h3>
+    <% lunch.ingredients.each do |ingredient| %>
+      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% end %>
+    <p><strong>Total for lunch:   kcal</strong></p>
+  <% end %>
+</div>
+
+<div class="dinner-breakdown">
+  <% dinner = current_user.meals.find_by(name: "Dinner", date: "2025-05-28") %>
+  <%# should use date: Date.today %>
+  <% if dinner.present? %>
+    <h3>Dinner: </h3>
+    <% dinner.ingredients.each do |ingredient| %>
+      <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% end %>
+    <p><strong>Total for dinner:   kcal</strong></p>
+  <% end %>
+</div>
+
+
+<div class="snack-breakdown">
+  <%# !!! need to check this if the below work properly %>
+  <% snacks = current_user.meals.where(name: "Snack", date: "2025-05-28") %>
+  <%# should use date: Date.today %>
+  <% if snacks.present? %>
+    <h3>Snack: </h3>
+    <% snacks.each do |snack| %>
+      <% snack.ingredients.each do |ingredient| %>
+        <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+      <% end %>
+    <% end %>
+    <p><strong>Total for snacks:   kcal</strong></p>
+  <% end %>
+</div>
+>>>>>>> Stashed changes
