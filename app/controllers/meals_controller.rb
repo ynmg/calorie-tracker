@@ -1,6 +1,12 @@
 class MealsController < ApplicationController
   def index
-    @todays_meals = current_user.meals.where(date: Date.today)
+    begin
+      date = params[:date].present? ? Date.parse(params[:date]) : Date.today
+    rescue ArgumentError
+      date = Date.today
+    end
+
+    @todays_meals = current_user.meals.where(date: date)
 
     @calorie_breakdown = []
 
@@ -25,6 +31,7 @@ class MealsController < ApplicationController
       }
     end
     @total_calories = @calorie_breakdown.sum { |meal| meal[:calories] }
+    @selected_date = date
   end
 
   def new

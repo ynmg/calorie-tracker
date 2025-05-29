@@ -1,6 +1,6 @@
 <h2>Today's Calorie Breakdown</h2>
 
-<!-- check this after merge -->
+<!-- check this after merge lines 4-11-->
 <ul>
   <% @calorie_breakdown.each do |breakdown| %>
     <li>
@@ -9,6 +9,12 @@
     <%= link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
   <% end %>
 </ul>
+
+<%= form_with url: meals_path, method: :get, local: true do %>
+  <%= label_tag :date, "Select Date:" %>
+  <%= date_field_tag :date, params[:date] || Date.today %>
+  <%= submit_tag "Show Meals" %>
+<% end %>
 
 
 <div class="breakfast-breakdown">
@@ -61,7 +67,7 @@
   <h3>Snack:</h3>
   <% snacks = current_user.meals.where(name: "Snack", date: Date.today) %>
   <% total_snack_calories = 0 %>
-  
+
   <% if snacks.present? %>
     <% snacks.each do |snack| %>
       <% snack.ingredients.each do |ingredient| %>
@@ -77,4 +83,3 @@
   <% total_calories = total_breakfast_calories + total_lunch_calories + total_dinner_calories + total_snack_calories %>
   <h3>Total Calories for Today: <%= total_calories %> kcal</h3>
 </div>
-
