@@ -1,3 +1,8 @@
+// # Hex Code	RGB Value
+// #537D5D	(83, 125, 93)
+// #73946B	(115, 148, 107)
+// #9EBC8A	(158, 188, 138)
+// #D2D0A0	(210, 208, 160)
 
 .kpi-circle {
       width: 120px;
@@ -15,14 +20,14 @@
       margin: 100px;
     }
 
-  .favicon {
-      width: 20px;
-      height: 20px;
-      background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
-      border-radius: 50%;
-      background-position: center;
-      background-size: 110%;
-  }
+  // .favicon {
+  //     width: 20px;
+  //     height: 20px;
+  //     background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
+  //     border-radius: 50%;
+  //     background-position: center;
+  //     background-size: 110%;
+  // }
 
 .page-with-kpi {
   height: 24vh;
@@ -58,7 +63,7 @@
     justify-content: center;
   }
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(67, 94, 73, 0.7);
+  box-shadow: 0 4px 8px rgba(83, 125, 93, 0.7);
 }
 
 .two-buttons {
@@ -71,7 +76,14 @@
     border-radius: 5px;
     margin: 16px;
   }
-  background: linear-gradient(to right, rgb(147, 174, 153), rgb(67,94,73) );
+  background: linear-gradient(to right, $light_green, $dark_green );
   background-size: cover;
   background-repeat: repeat;
 }
+
+
+// # Hex Code	RGB Value
+// #537D5D	(83, 125, 93)
+// #73946B	(115, 148, 107)
+// #9EBC8A	(158, 188, 138)
+// #D2D0A0	(210, 208, 160)
