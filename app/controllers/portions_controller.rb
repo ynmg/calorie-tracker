@@ -1,5 +1,5 @@
 class PortionsController < ApplicationController
-  before_action :set_portion, only: [ :show, :update ]
+  before_action :set_portion, only: [ :show, :update, :destroy ]
 
   def show
   end
@@ -10,6 +10,9 @@ class PortionsController < ApplicationController
     else
       render :show, status: :unprocessable_entity
     end
+  end
+
+  def destroy
   end
 
   private
