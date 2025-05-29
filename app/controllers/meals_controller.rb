@@ -1,14 +1,30 @@
 class MealsController < ApplicationController
-  def index
-    @todays_meals = current_user.meals.where(date: "2025-05-28")
+def index
+    @todays_meals = current_user.meals.where(date: Date.today)
 
-    @calorie_breakdown = @todays_meals.includes(:portions => :ingredient).map do |meal|
-    {
-      meal_name: meal.name,
-      calories: meal.portions.sum { |portion| portion.ingredient.calories * portion.quantity }
-    }
+    @calorie_breakdown = []
+
+    [ "Breakfast", "Lunch", "Dinner", "Snack" ].each do |meal_name|
+      if meal_name == "Snack"
+        meals = @todays_meals.where(name: meal_name)
+      else
+        meal = @todays_meals.find_by(name: meal_name)
+        meals = meal.present? ? [ meal ] : []
+      end
+
+      total_calories = 0
+      meals.each do |meal|
+        meal.portions.includes(:ingredient).each do |portion|
+          total_calories += portion.ingredient.calories * portion.quantity
+        end
+      end
+
+      @calorie_breakdown << {
+        meal_name: meal_name,
+        calories: total_calories
+      }
     end
-  @total_calories = @calorie_breakdown.sum { |m| m[:calories] }
+    @total_calories = @calorie_breakdown.sum { |meal| meal[:calories] }
   end
 
   def new
