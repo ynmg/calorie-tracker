@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   def index
-    @todays_meals = current_user.meals.where(date: "2025-05-28")
+    @todays_meals = current_user.meals.where(date: Date.today)
+    # should change to Date.today when everything is set
 
     @calorie_breakdown = @todays_meals.includes(:portions => :ingredient).map do |meal|
     {
@@ -13,9 +14,10 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
-    3.times do
+    1.times do
       @meal.portions.build
     end
+    @ingredients = Ingredient.all
   end
 
   def create
