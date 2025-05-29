@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "portions/update"
+  get "portions/show"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,6 +19,6 @@ Rails.application.routes.draw do
   resources :meals, only: [:show, :index, :new, :create, :destroy] do
     resources :portions, only: [:create]
   end
-  resources :portions, only: [:destroy, :update]
+  resources :portions, only: [:show, :destroy, :update]
   resources :ingredients, only: [ :create ]
 end
