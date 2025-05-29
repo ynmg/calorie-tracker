@@ -1,0 +1,15 @@
+<h2> <%= meal.name %> </h2>
+
+<% @meal.portions.each do |portion| %>
+  <% if portion.ingredient.present? %>
+    <div class="d-flex justify-content-between">
+      <p><%= portion.ingredient.name %> | <%= portion.quantity %>g</p>
+      <p><%= portion.ingredient.calories %> kcal</p>
+    </div>
+  <% end %>
+<% end %>
+<%# update & delete %>
+  <%# <%= link_to  do %>
+    <%# <span class="visually-hidden">Edit</span>
+    <i class="fas fa-edit"></i>
+  <% end %>
