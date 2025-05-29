@@ -1,5 +1,6 @@
 <h2>Today's Calorie Breakdown</h2>
 
+<!-- check this after merge -->
 <ul>
   <% @calorie_breakdown.each do |breakdown| %>
     <li>
@@ -9,11 +10,11 @@
   <% end %>
 </ul>
 
-<p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
 
 <div class="breakfast-breakdown">
   <% breakfast = current_user.meals.find_by(name: "Breakfast", date: Date.today) %>
   <%# should use date: Date.today %>
+
   <% if breakfast.present? %>
     <h3>Breakfast: </h3>
     <% breakfast.portions.each do |portion| %>
@@ -50,7 +51,6 @@
   <% end %>
 </div>
 
-
 <div class="snack-breakdown">
   <%# !!! need to check this if the below work properly %>
   <% snacks = current_user.meals.where(name: "Snack", date: Date.today) %>
@@ -66,3 +66,5 @@
     <p><strong>Total for snacks:   kcal</strong></p>
   <% end %>
 </div>
+
+
