@@ -12,10 +12,8 @@
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23537D5D"/><circle cx="50" cy="50" r="35" fill="%239EBC8A"/><g fill="black"><circle cx="50" cy="20" r="3"/><circle cx="65" cy="27" r="3"/><circle cx="75" cy="42" r="3"/><circle cx="78" cy="58" r="3"/><circle cx="70" cy="72" r="3"/><circle cx="55" cy="78" r="3"/><circle cx="40" cy="78" r="3"/><circle cx="28" cy="68" r="3"/><circle cx="23" cy="53" r="3"/><circle cx="25" cy="38" r="3"/><circle cx="35" cy="25" r="3"/></g></svg>' type="image/svg+xml">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>

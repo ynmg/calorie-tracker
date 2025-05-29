@@ -1,4 +1,5 @@
 class PortionsController < ApplicationController
+  before_action :set_portion, only: [ :show, :update ]
   
   def destroy
     @portion = Portion.find(params[:id])
@@ -6,7 +7,8 @@ class PortionsController < ApplicationController
     redirect_to meals_path
   end
 
-  before_action :set_portion, only: [ :show, :update ]
+
+
 
   def show
   end
@@ -17,6 +19,9 @@ class PortionsController < ApplicationController
     else
       render :show, status: :unprocessable_entity
     end
+  end
+
+  def destroy
   end
 
   private
