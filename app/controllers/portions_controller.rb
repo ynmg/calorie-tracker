@@ -1,5 +1,14 @@
 class PortionsController < ApplicationController
-  before_action :set_portion, only: [ :show, :update, :destroy ]
+  before_action :set_portion, only: [ :show, :update ]
+  
+  def destroy
+    @portion = Portion.find(params[:id])
+    @portion.destroy
+    redirect_to meals_path
+  end
+
+
+
 
   def show
   end
