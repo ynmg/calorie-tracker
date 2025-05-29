@@ -1,13 +1,12 @@
-<h1> Add food/drink </h1>
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: ingredients_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-dark-green" %>
-    <% end %>
-  </div>
+<h1> <%= @meal.name %> </h1>
+<div>
+  <% @meal.ingredients.each do |ingredient| %>
+    <p><%= ingredient.name %></p>
+    <p><%= ingredient.calories %>kcal</p>
+  <% end %>
+<%# need to put portion as well %>
+  <%# <%= link_to  do %>
+    <%# <span class="visually-hidden">Edit</span>
+    <i class="fas fa-edit"></i>
+  <% end %>
 </div>

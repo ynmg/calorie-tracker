@@ -13,6 +13,10 @@ class MealsController < ApplicationController
   @total_calories = @calorie_breakdown.sum { |m| m[:calories] }
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+  end
+
   def new
     @meal = Meal.new
     1.times do
@@ -26,7 +30,8 @@ class MealsController < ApplicationController
     @meal.user = current_user
 
     if @meal.save
-      redirect_to meals_path
+      # redirect_to meals_path
+      redirect_to new_meal_portion_path(@meal)
     else
       render :new, status: :unprocessable_entity
     end
