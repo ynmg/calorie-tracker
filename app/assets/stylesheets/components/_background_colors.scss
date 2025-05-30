@@ -1,14 +1,21 @@
+// # Hex Code	RGB Value
+// #537D5D	(83, 125, 93)
+// #73946B	(115, 148, 107)
+// #9EBC8A	(158, 188, 138)
+// #D2D0A0	(210, 208, 160)
+
 
 .dark-green {
-  background-color: rgb(50, 142, 110);
+  background-color: $dark_green;
 }
 
 .under-green {
-  background: linear-gradient(to right, rgb(250, 128, 114), rgb(144, 198, 124) )
+//  background: linear-gradient(to right, rgb(250, 128, 114), $light_green )
+ background: linear-gradient(to right, rgb(13,13,13), $beige )
 }
 
 .my-custom-btn {
-  background-color: #435e49;   /* custom green */
+  background-color: $dark_green;   /* custom green */
   color: white;
   border: none;
   border-radius: 7px;
@@ -16,23 +23,36 @@
 
 .my-custom-btn:hover {
   background-color: #3a4e3f;
-  color: linear-gradient(to right, rgb(250, 128, 114), rgb(144, 198, 124) )   /* slightly darker on hover */
+  color: $bright_green;  /* slightly darker on hover */
 }
 
 .btn-signup {
-  background: linear-gradient(to right,  #537D5D, #9EBC8A );
+  background: linear-gradient(to right,  $dark_green, $light_green );
   color: white;
   border: none;
   border-radius: 7px;
   width: 100%;
 }
 
+.btn-signup-option {
+      background: linear-gradient(to right, $light_green, $dark_green );
+      color: white;
+      border: none;
+      border-radius: 7px;
+      width: 100%;
+  }
+
+
 .btn-signup:hover {
-  color: #3a4e3f;   /* slightly darker on hover */
+  color: $bright_green;
+}
+
+.btn-signup-option:hover {
+  color: $bright_green;
 }
 
 
 .btn-signup-secondary {
-  color: #435e49;   /* custom green */
+  color: $dark_green;   /* custom green */
   border: none;
 }

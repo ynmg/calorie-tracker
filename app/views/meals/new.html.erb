@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-<h1>Meals Form</h1>
-=======
 <h2>What did you eat?</h2>
 <div class="meals-grid">
   <%= simple_form_for @meal do |f| %>
@@ -8,29 +5,33 @@
     <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
     <div data-controller="toggle">
       <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
+
         <div data-toggle-target="togglableElement" class="d-none">
           <%= f.simple_fields_for :portions do |portion_fields| %>
             <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
             <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
           <% end %>
+
           <%= f.submit "Add", class:"btn btn-dark-green" %>
         </div>
     </div>
   <% end %>
->>>>>>> Stashed changes
 
-<%= simple_form_for @meal do |f| %>
-  <%= f.input :date %>
-  <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
-  <div data-controller="toggle">
-    <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Add Food/Drink</button>
-      <div data-toggle-target="togglableElement" class="d-none">
-        <%= f.simple_fields_for :portions do |portion_fields| %>
-          <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
-          <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
-        <% end %>
-        <%= f.submit "Add" %>
-      </div>
+  <div class="text-secondary">
+    <%= render "details", meal: @meal %>
   </div>
+</div>
 
-<% end %>
+<%# search bar for next week API %>
+<%# <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: ingredients_path, method: :get, class: "d-flex" do %>
+      <%# <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%# <%= submit_tag "Search", name: "", class: "btn btn-dark-green" %>
+    <%# <% end %>
+  <%# </div>
+</div> %>

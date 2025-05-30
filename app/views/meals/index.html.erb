@@ -1,64 +1,82 @@
 <h2>Today's Calorie Breakdown</h2>
+<div class="container">
+  <ul>
+    <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories %> kcal</li>
+    <li><strong>Lunch</strong>: <%= @lunches.total_calories %> kcal</li>
+    <li><strong>Dinner</strong>: <%= @dinners.total_calories %> kcal</li>
+    <li><strong>Snacks</strong>: <%= @snacks.total_calories %> kcal</li>
+    
+      <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
+  </ul>
 
-<ul>
-  <% @calorie_breakdown.each do |breakdown| %>
-    <li>
-      <strong><%= breakdown[:meal_name] %></strong>: <%= breakdown[:calories] %> kcal
-    </li>
-    <%= link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
-  <% end %>
-</ul>
+  <div class="breakfast-breakdown">
+    <h3>Breakfast: </h3>
 
-<p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
-
-<div class="breakfast-breakdown">
-  <h3>Breakfast: </h3>
-  <% breakfast = current_user.meals.find_by(name: "Breakfast", date: Date.today) %>
-  <%# should use date: Date.today %>
-  <% if breakfast.present? %>
-    <% breakfast.ingredients.each do |ingredient| %>
-      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
-    <% end %>
-    <p><strong>Total for breakfast:   kcal</strong></p>
-  <% end %>
-</div>
-
-<div class="lunch-breakdown">
-  <% lunch = current_user.meals.find_by(name: "Lunch", date: Date.today) %>
-  <%# should use date: Date.today %>
-  <% if lunch.present? %>
-    <h3>Lunch: </h3>
-    <% lunch.ingredients.each do |ingredient| %>
-      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
-    <% end %>
-    <p><strong>Total for lunch:   kcal</strong></p>
-  <% end %>
-</div>
-
-<div class="dinner-breakdown">
-  <% dinner = current_user.meals.find_by(name: "Dinner", date: Date.today) %>
-  <%# should use date: Date.today %>
-  <% if dinner.present? %>
-    <h3>Dinner: </h3>
-    <% dinner.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
-    <% end %>
-    <p><strong>Total for dinner:   kcal</strong></p>
-  <% end %>
-</div>
-
-
-<div class="snack-breakdown">
-  <%# !!! need to check this if the below work properly %>
-  <% snacks = current_user.meals.where(name: "Snack", date: "2025-05-29") %>
-  <%# should use date: Date.today %>
-  <% if snacks.present? %>
-    <h3>Snack: </h3>
-    <% snacks.each do |snack| %>
-      <% snack.ingredients.each do |ingredient| %>
-        <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% @breakfasts.each do |breakfast| %>
+      <% breakfast.ingredients.each do |ingredient| %>
+        <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
       <% end %>
+
+      <p>
+        <strong>total for meal: <%= breakfast.total_calories %> kcal</strong> 
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(breakfast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </p>
     <% end %>
-    <p><strong>Total for snacks:   kcal</strong></p>
-  <% end %>
+    <strong>Total breakfast calories: <%= @breakfasts.total_calories %> kcal</strong> 
+  </div>
+
+  <div class="lunch-breakdown">
+    <h3>Lunch: </h3>
+
+    <% @lunches.each do |lunch| %>
+      <% lunch.ingredients.each do |ingredient| %>
+        <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+      <% end %>
+
+      <p>
+        <strong>total for meal: <%= lunch.total_calories %> kcal</strong>
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(lunch), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </p>
+
+    <% end %>
+    <strong>Total lunch calories: <%= @lunches.total_calories %> kcal</strong> 
+  </div>
+
+  <div class="dinner-breakdown">
+    <h3>Dinner: </h3>
+
+    <% @dinners.each do |dinner| %>
+      <% dinner.ingredients.each do |ingredient| %>
+        <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+      <% end %>
+
+      <p>
+        <strong>total for meal: <%= dinner.total_calories %> kcal</strong>
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(dinner), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </p>
+    <% end %>
+    <strong>Total dinner calories: <%= @dinners.total_calories %> kcal</strong> 
+  </div>
+
+  <div class="snack-breakdown">
+    <h3>Snacks: </h3>
+
+    <% @snacks.each do |snack| %>
+      <% snack.ingredients.each do |ingredient| %>
+        <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+      <% end %>
+
+      <p>
+        <strong>total for meal: <%= total_snack_calories %> kcal</strong>
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(snach), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </p>
+    <% end %>
+    <strong>Total snacks calories: <%= @snacks.total_calories %> kcal</strong> 
+  </div>
+
+  <div class="total-breakdown">
+    <h3>Total Calories for Today: <%= @meals.total_calories %> kcal</h3>
+  </div>
+
+
 </div>

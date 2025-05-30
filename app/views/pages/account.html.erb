@@ -1,23 +1,28 @@
 <!--navigation bar at top-->
-<div class="two-buttons">
-  <div class="card-rule">
-    <div class="card-rule-items">
-      <h5>Daily Tracker</h5>
-      <hr>
-    <h4>View your tracked meals so far today, with total calories.</h4>
-      <%= link_to "See Tracker", meals_path, class: "btn my-custom-btn btn-lg fw-bold rounded-pill" %>
-    </div>
-  </div>
-  <div class="card-rule">
-    <div class="card-rule-items">
-      <h5>Record a Meal</h5>
-      <hr>
-      <h4> Choose foods to add and track your meal or snack.</h4>
-      <%= link_to "Add a Meal", new_meal_path, class: "btn my-custom-btn btn-lg fw-bold rounded-pill" %>
-    </div>
-  </div>
+<div class="container-image">
+  <h1>What would you like to do?</h1>
+  <h4>Your total recorded calorie intake for the day can be seen in the square, on the bottom right.</h4>
 </div>
-<div class="page-with-kpi" style="background-image: linear-gradient(rgba(147,174,153,0.7),rgba(147,174,153,0.9)), url('https://master-7rqtwti-znj23gdadsstc.piximizer.px.at/w_1200,h_800,q_80,f_cover,cx_1,cy_0,cw_2994,ch_1996,v_a7622f2ef8/fileadmin/amc.info/6-Blog/en-gb/Article_17_Green_Food_Header.jpg');">
-  <div class="kpi-circle under-green">247</div>
 
+
+<div class="container-options">
+  <div class="card-option ">
+    <%= link_to meals_path do %>
+      <h3>Daily Tracker</h3>
+      <hr>
+      <h6>View your tracked meals so far today, with total calories.</h6>
+    <% end %>
+  </div>
+
+  <div class="card-option">
+    <%= link_to new_meal_path do %>
+      <h3>Record a Meal</h3>
+      <hr>
+      <h6>Choose foods to add to your meal or snack, to record your calorie intake.</h6>
+    <% end %>
+  </div>
 </div>
+<div class="container-lower" alt="Kaloree website">
+  Kaloree website
+</div>
+<div class="fixed  kpi-circle">247</div>
