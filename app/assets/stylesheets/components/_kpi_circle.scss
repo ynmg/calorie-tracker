@@ -22,7 +22,7 @@
 
 .container-options{
   background-color: white;
-  height: 48vh;
+  height: 52vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -33,14 +33,13 @@
 
       width: 120px;
       height: 120px;
-    //  background-image: linear-gradient(rgba(158,188,138,0.6),rgba(158,188,138,0.6)), asset-url('perforations_imperfect.png');
-    //  background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
-    //  background-size: 269%;
-    //  background-color: $beige;
-      background: linear-gradient(to right, rgb(188,222,187),$beige);
+//      background: linear-gradient(to right, rgb(188,222,187),$beige);
+  //    background-image: linear-gradient(rgba(210,208,160,0.7), rgba(210,208,160,0.0)), asset-url('seamless_repeated_banner.png');
+      background-color: $bright_green;
       color: $deep_green;
-    //  background-position: center;
+      background-position: center;
       border-radius: 32%;
+ //     background-size: 20%;
       font-family: Nunito, Helvetica, "sans-serif";
       font-size: 36px;
       font-weight: bold;
@@ -135,7 +134,7 @@
   align-content: center;
   justify-content: center;
   background-color: rgba(212, 211, 186,0.2);
-  height: 8vh;
+  height: 4vh;
   color: $dark_green;
   padding: 2px;
 }
