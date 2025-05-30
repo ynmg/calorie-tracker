@@ -1,7 +1,6 @@
 require "test_helper"
 
 class PortionsControllerTest < ActionDispatch::IntegrationTest
-
   test "should get update" do
     get portions_update_url
     assert_response :success

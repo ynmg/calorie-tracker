@@ -1,30 +1,15 @@
 class MealsController < ApplicationController
   def index
-    @todays_meals = current_user.meals.where(date: Date.today)
+    @meals = current_user.meals.where(date: Date.today)
 
-    @calorie_breakdown = []
+    @breakfasts = @meals.where(name: "Breakfast")
+    @lunches = @meals.where(name: "Lunch")
+    @dinners = @meals.where(name: "Dinner")
+    @snacks = @meals.where(name: "Snack")
+  end
 
-    [ "Breakfast", "Lunch", "Dinner", "Snack" ].each do |meal_name|
-      if meal_name == "Snack"
-        meals = @todays_meals.where(name: meal_name)
-      else
-        meal = @todays_meals.find_by(name: meal_name)
-        meals = meal.present? ? [ meal ] : []
-      end
-
-      total_calories = 0
-      meals.each do |meal|
-        meal.portions.includes(:ingredient).each do |portion|
-          total_calories += portion.ingredient.calories * portion.quantity
-        end
-      end
-
-      @calorie_breakdown << {
-        meal_name: meal_name,
-        calories: total_calories
-      }
-    end
-    @total_calories = @calorie_breakdown.sum { |meal| meal[:calories] }
+  def show
+    @meal = Meal.find(params[:id])
   end
 
   def new
@@ -40,7 +25,8 @@ class MealsController < ApplicationController
     @meal.user = current_user
 
     if @meal.save
-      redirect_to meals_path
+      # redirect_to meals_path
+      redirect_to new_meal_portion_path(@meal)
     else
       render :new, status: :unprocessable_entity
     end
