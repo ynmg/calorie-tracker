@@ -6,10 +6,9 @@
     <li>
       <strong><%= breakdown[:meal_name] %></strong>: <%= breakdown[:calories] %> kcal
     </li>
-    <%= link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
+    <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
   <% end %>
 </ul>
-
 
 <div class="breakfast-breakdown">
   <% breakfast = current_user.meals.find_by(name: "Breakfast", date: Date.today) %>
@@ -45,7 +44,7 @@
     <h3>Dinner: </h3>
     <% dinner.portions.each do |portion| %>
       <p><%= portion.ingredient.name %> | calories: <%= portion.ingredient.calories %> kcal</p>
-      <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <% end %>
     <p><strong>Total for dinner:   kcal</strong></p>
   <% end %>
@@ -66,5 +65,3 @@
     <p><strong>Total for snacks:   kcal</strong></p>
   <% end %>
 </div>
-
-
