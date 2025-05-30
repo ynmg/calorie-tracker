@@ -1,0 +1,24 @@
+<h1>Add meal</h1>
+<div class="meals-grid">
+  <div>
+  <%= simple_form_for @meal do |f| %>
+    <%= f.input :date %>
+    <%= f.input :name, collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+  <% end %>
+
+      <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Add Food/Drink</button>
+        <div data-toggle-target="togglableElement">
+          <%= simple_form_for [@meal, @portion] do |portion_fields| %>
+            <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+            <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+            <%= portion_fields.submit "Add" %>
+          <% end %>
+        </div>
+    </div>
+
+
+  <div class="text-secondary">
+    <%= render "meals/details", meal: @meal %>
+    <%= link_to "confirm", meals_path%>
+  </div>
+</div>
