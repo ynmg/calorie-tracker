@@ -5,7 +5,7 @@
 // #D2D0A0	(210, 208, 160)
 
 .container-image {
-  border: 2px solid black;
+  border-top: 2px solid black;
   border-width: 2px;
   border-color:$deep_green;
   padding: 40px;
@@ -35,8 +35,8 @@
       height: 120px;
 //      background: linear-gradient(to right, rgb(188,222,187),$beige);
   //    background-image: linear-gradient(rgba(210,208,160,0.7), rgba(210,208,160,0.0)), asset-url('seamless_repeated_banner.png');
-      background-color: $bright_green;
-      color: $deep_green;
+      background-color: $deep_green;
+      color: white;
       background-position: center;
       border-radius: 32%;
  //     background-size: 20%;
