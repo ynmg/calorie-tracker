@@ -1,4 +1,6 @@
 class PortionsController < ApplicationController
+  
+  before_action :set_portion, only: [ :show, :update ]
   def new
     @meal = Meal.find(params[:meal_id])
     @portion = Portion.new
@@ -15,8 +17,31 @@ class PortionsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def update
+    if @portion.update(portion_params)
+      redirect_to portion_path(@portion), notice: "Portion was successfully updated."
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @portion = Portion.find(params[:id])
+    @portion.destroy
+    redirect_to meals_path
+  end
+
   private
+
   def portion_params
     params.require(:portion).permit(:quantity, :ingredient_id)
   end
+
+  def set_portion
+    @portion =  Portion.find(params[:id])
+  end
+
 end

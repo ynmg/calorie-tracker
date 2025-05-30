@@ -1,7 +1,14 @@
+// # Hex Code	RGB Value
+// #537D5D	(83, 125, 93)
+// #73946B	(115, 148, 107)
+// #9EBC8A	(158, 188, 138)
+// #D2D0A0	(210, 208, 160)
+
 .reg-container {
   padding: 100px 100px;
   display: flex;
   background-color: rgba(158,188,138, 0.2);
+// background color is a theme color but transparent
   height: 72vh;
   justify-content: center;
   align-items: center;
@@ -19,7 +26,7 @@
   align-items: space-beween;
   h2 {
     text-align: left;
-    color: darkolivegreen;
+    color: $dark_green;
   }
   padding: 20px;
 }
@@ -37,7 +44,25 @@
   align-items: space-beween;
   h2 {
     text-align: left;
-    color: darkolivegreen;
+    color: $dark_green;
+  }
+  padding: 20px;
+}
+
+.form-styled-portion {
+  font-family: Nunito, Helvetica, "sans-serif";
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  width: 480px;
+  height: 392px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: space-beween;
+  h2 {
+    text-align: left;
+    color: $dark_green;
   }
   padding: 20px;
 }
@@ -54,23 +79,26 @@
   font-family: Nunito, Helvetica, "sans-serif";
 }
 
-.reg-btn {
-    align-content: center;
-    justify-content: center;
-    color: white;
-    background-color: linear-gradient(to right, #537D5D, #D2D0A0 );
-    border-radius: 5px;
-    font-family: Nunito, Helvetica, "sans-serif";
-  }
+// .reg-btn {
+//     align-content: center;
+//     justify-content: center;
+//     color: white;
+//     background-color: linear-gradient(to right, #537D5D, #D2D0A0 );
+//     border-radius: 5px;
+//     font-family: Nunito, Helvetica, "sans-serif";
+//   }
 
 .div-centered {
   text-align: center;
-  color: #3a4e3f
+  color: $dark_green;
 }
 
 .text-olive {
   display:flex;
   text-align: left;
   padding: 8px;
-  color: #3a4e3f
+  color: $dark_green;
+  link_to {
+    text-align: center;
+  }
 }

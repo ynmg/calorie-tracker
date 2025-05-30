@@ -1,0 +1,16 @@
+<div class="reg-container">
+  <div class="form-styled-portion">
+    <h2>Change your portion size</h2>
+    <br>
+    <p>You currently have <%= @portion.quantity %> grams of <%= @portion.ingredient.name  %> in your meal.</p>
+    <p>To change the amount, please enter the new weight in grams:</p>
+    <%= simple_form_for @portion do |f| %>
+        <%= f.input :quantity, label: false %>
+        <%= f.button :submit, class:"btn btn-signup btn-lg fw-bold"%>
+    <% end %>
+    <br>
+    <div>
+      <%= link_to "Go back to your meal", meals_path, class:"btn btn-signup-option btn-lg fw-bold option" %>
+    </div>
+  </div>
+</div>

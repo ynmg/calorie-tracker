@@ -1,23 +1,24 @@
 <h2>Today's Calorie Breakdown</h2>
 
+<!-- check this after merge -->
 <ul>
   <% @calorie_breakdown.each do |breakdown| %>
     <li>
       <strong><%= breakdown[:meal_name] %></strong>: <%= breakdown[:calories] %> kcal
     </li>
-    <%= link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
+    <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
   <% end %>
 </ul>
 
-<p><strong>Total Calories for Today:</strong> <%= @total_calories %> kcal</p>
-
 <div class="breakfast-breakdown">
-  <h3>Breakfast: </h3>
   <% breakfast = current_user.meals.find_by(name: "Breakfast", date: Date.today) %>
   <%# should use date: Date.today %>
+
   <% if breakfast.present? %>
-    <% breakfast.ingredients.each do |ingredient| %>
-      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <h3>Breakfast: </h3>
+    <% breakfast.portions.each do |portion| %>
+      <p><%= portion.ingredient.name %> | calories: <%= portion.ingredient.calories %> kcal</p>
+      <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
     <p><strong>Total for breakfast:   kcal</strong></p>
   <% end %>
@@ -28,8 +29,9 @@
   <%# should use date: Date.today %>
   <% if lunch.present? %>
     <h3>Lunch: </h3>
-    <% lunch.ingredients.each do |ingredient| %>
-      <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% lunch.portions.each do |portion| %>
+      <p><%= portion.ingredient.name %> | calories: <%= portion.ingredient.calories %> kcal</p>
+      <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <% end %>
     <p><strong>Total for lunch:   kcal</strong></p>
   <% end %>
@@ -40,23 +42,24 @@
   <%# should use date: Date.today %>
   <% if dinner.present? %>
     <h3>Dinner: </h3>
-    <% dinner.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+    <% dinner.portions.each do |portion| %>
+      <p><%= portion.ingredient.name %> | calories: <%= portion.ingredient.calories %> kcal</p>
+      <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <% end %>
     <p><strong>Total for dinner:   kcal</strong></p>
   <% end %>
 </div>
 
-
 <div class="snack-breakdown">
   <%# !!! need to check this if the below work properly %>
-  <% snacks = current_user.meals.where(name: "Snack", date: "2025-05-29") %>
+  <% snacks = current_user.meals.where(name: "Snack", date: Date.today) %>
   <%# should use date: Date.today %>
   <% if snacks.present? %>
     <h3>Snack: </h3>
     <% snacks.each do |snack| %>
-      <% snack.ingredients.each do |ingredient| %>
-        <P><%= ingredient.name %> | calories: <%= ingredient.calories %> kcal</p>
+      <% snack.portions.each do |portion| %>
+        <p><%= portion.ingredient.name %> | calories: <%= portion.ingredient.calories %> kcal</p>
+        <%= link_to "Delete", portion_path(portion), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       <% end %>
     <% end %>
     <p><strong>Total for snacks:   kcal</strong></p>
