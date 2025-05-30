@@ -4,38 +4,83 @@
 // #9EBC8A	(158, 188, 138)
 // #D2D0A0	(210, 208, 160)
 
+.container-image {
+  border-top: 2px solid black;
+  border-width: 2px;
+  border-color:$deep_green;
+  padding: 40px;
+  height: 36vh;
+  color: $deep_green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  background-image: linear-gradient(rgba(219,215,210,0.7), rgba(219,215,210,0.9)), asset-url('LandingImageZonedIn.png');
+  background-size: 100%;
+  background-position: center;
+}
+
+.container-options{
+  background-color: white;
+  height: 52vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-evenly;
+  }
+
 .kpi-circle {
+
       width: 120px;
       height: 120px;
-      background-image: linear-gradient(rgba(158,188,138,0.6),rgba(158,188,138,0.6)), asset-url('perforations_imperfect.png');
-    //  background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
-      background-size: 269%;
-      color: antiquewhite;
+//      background: linear-gradient(to right, rgb(188,222,187),$beige);
+  //    background-image: linear-gradient(rgba(210,208,160,0.7), rgba(210,208,160,0.0)), asset-url('seamless_repeated_banner.png');
+      background-color: $deep_green;
+      color: white;
       background-position: center;
-      border-radius: 50%;
+      border-radius: 32%;
+ //     background-size: 20%;
       font-family: Nunito, Helvetica, "sans-serif";
       font-size: 36px;
       font-weight: bold;
       text-align: center;
       line-height: 120px;
-      margin: 160px;
-
     }
 
-  // .favicon {
-  //     width: 20px;
-  //     height: 20px;
-  //     background-image: linear-gradient(rgba(138,151,39,0.6),rgba(38,61,39,0.6)), asset-url('KiwiSlice.png');
-  //     border-radius: 50%;
-  //     background-position: center;
-  //     background-size: 110%;
-  // }
+.fixed {
+  position: fixed;
+  bottom: 90px;
+  right: 120px;
+}
 
-.page-with-kpi {
+.container-kpi {
   height: 24vh;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  margin: 100px;
+}
+
+.card-option {
+  background-color: rgba(158,188,138, 0.2);
+  font-family: Nunito, Helvetica, "sans-serif";
+  h1, h2, h3, h4, h5, h6, p {
+    color: $deep_green;
+  }
+  border-radius: 7px;
+  display: flex;
+  width: 320px;
+  height: 160px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: space-beween;
+  padding: 22px;
+  margin: 36px;
+}
+
+
+.card-option:hover{
+  h1, h2, h3, h4, h5, h6, p {color:$bright_green;}
 }
 
 .card-rule {
@@ -84,9 +129,12 @@
   background-repeat: repeat;
 }
 
-
-// # Hex Code	RGB Value
-// #537D5D	(83, 125, 93)
-// #73946B	(115, 148, 107)
-// #9EBC8A	(158, 188, 138)
-// #D2D0A0	(210, 208, 160)
+.container-lower {
+  display:flex;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(212, 211, 186,0.2);
+  height: 4vh;
+  color: $dark_green;
+  padding: 2px;
+}
