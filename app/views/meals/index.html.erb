@@ -1,5 +1,5 @@
-<div class="container-image">
-    <h2>Total Calories for Today: <%= @meals.total_calories.to_i %> kcal</h2>
+<div class="container-image text-center">
+    <h2>Total Calories for Today: <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
 </div>
 
 <!-- <div class="container">
