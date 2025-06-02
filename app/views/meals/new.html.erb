@@ -2,7 +2,10 @@
 <h2>What did you eat?</h2>
 <div class="meals-grid">
   <%= simple_form_for @meal do |f| %>
-    <%= f.input :date %>
+    <%#= f.input :date %>
+    <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
     <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
     <div data-controller="toggle">
       <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
