@@ -6,7 +6,14 @@
     <%= f.input :date,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
-    <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+    <%# <i class="fa-solid fa-bread-slice fa-bounce"></i> %>
+    <%# <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+    <%= f.input :name, as: :radio_buttons, collection: [
+      [raw("#{fa_icon('coffee', size: 'lg', animation: 'flip', color: " #1a654f", animation_duration: "5s")} Breakfast"), 'breakfast'],
+      [raw("#{fa_icon('hamburger', size: 'lg', animation: 'flip', color: " #1a654f", animation_duration: "5s")} Lunch"), 'lunch'],
+      [raw("#{fa_icon('utensils', size: 'lg', animation: 'flip', color: " #1a654f", animation_duration: "5s")} Dinner"), 'dinner'],
+      [raw("#{fa_icon('cookie', size: 'lg', animation: 'flip', color: " #1a654f", animation_duration: "5s")} Snack"), 'snack']
+    ], label: false %>
     <div data-controller="toggle">
       <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
 
