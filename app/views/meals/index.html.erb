@@ -1,6 +1,8 @@
 <div class="container-image text-center">
     <h2>Total Calories for Today: <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
 </div>
+
+
 <!-- <div class="container">
   <ul>
     <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories %> kcal</li>
@@ -9,7 +11,10 @@
     <li><strong>Snacks</strong>: <%= @snacks.total_calories %> kcal</li>
       <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
   </ul> -->
-<%= link_to "Back", account_path %>
+<div class="nav-page d-flex justify-content-between">
+  <%= link_to "< Back", account_path %>
+  <%= link_to "Weekly >", trend_path %>
+</div>
 <h2 class="text-center">Today's Calorie Breakdown</h2>
 <div class="container w-75">
   <div class="list-group">
