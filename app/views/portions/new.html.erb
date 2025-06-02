@@ -2,7 +2,10 @@
 <div class="meals-grid">
   <div>
   <%= simple_form_for @meal do |f| %>
-    <%= f.input :date %>
+    <%#= f.input :date %>
+    <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
     <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
   <% end %>
 
