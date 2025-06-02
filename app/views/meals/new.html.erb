@@ -12,7 +12,11 @@
 
         <div data-toggle-target="togglableElement" class="d-none">
           <%= f.simple_fields_for :portions do |portion_fields| %>
-            <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+            <%#= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+            <div data-controller="ingredients">
+              <%= text_field_tag :search_input %>
+              <%= button_tag "Find ingridients", data: { action: "click->ingredients#find"} %>
+            </div>
             <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
           <% end %>
 
