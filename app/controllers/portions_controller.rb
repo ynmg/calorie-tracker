@@ -1,5 +1,5 @@
 class PortionsController < ApplicationController
-  
+
   before_action :set_portion, only: [ :show, :update ]
   def new
     @meal = Meal.find(params[:meal_id])
@@ -30,8 +30,9 @@ class PortionsController < ApplicationController
 
   def destroy
     @portion = Portion.find(params[:id])
+    @meal = @portion.meal
     @portion.destroy
-    redirect_to meals_path
+    redirect_to new_meal_portion_path(@meal), notice: "Portion was successfully deleted."
   end
 
   private

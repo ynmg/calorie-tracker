@@ -23,7 +23,7 @@
               <%# <% end %>
               <% @breakfasts.each do |breakfast| %>
                 <% breakfast.portions.each do |portion| %>
-                  <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories: <%= portion.ingredient.calories %> kcal</p>
+                  <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories <%= portion.ingredient.calories %> kcal per 100 g</p>
               <% end %>
               <p>
                 <strong>Total for meal: <%= breakfast.total_calories.to_i %> kcal</strong>
@@ -39,10 +39,10 @@
             <h3>Lunch: </h3>
             <% @lunches.each do |lunch| %>
               <% lunch.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>Total for meal: <%= lunch.total_calories %> kcal</strong>
+                <strong>Total for meal: <%= lunch.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(lunch), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
@@ -55,10 +55,10 @@
             <h3>Dinner: </h3>
             <% @dinners.each do |dinner| %>
               <% dinner.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>total for meal: <%= dinner.total_calories %> kcal</strong>
+                <strong>total for meal: <%= dinner.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(dinner), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
@@ -71,10 +71,10 @@
             <h3>Snacks: </h3>
             <% @snacks.each do |snack| %>
               <% snack.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>total for meal: <%= snack.total_calories %> kcal</strong>
+                <strong>total for meal: <%= snack.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(snack), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
