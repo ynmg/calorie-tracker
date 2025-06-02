@@ -34,6 +34,24 @@
   width: 100%;
 }
 
+.btn-tracker {
+  background: linear-gradient(to right,  $dark_green, $light_green );
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 40%;
+}
+
+.btn-query {
+  background: linear-gradient(to right, rgb(129, 162, 177), rgb(129, 162, 177));
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 40%;
+}
+
+
+
 .btn-signup-option {
       background: linear-gradient(to right, $light_green, $dark_green );
       color: white;
