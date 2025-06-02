@@ -1,0 +1,45 @@
+<%= simple_form_for meal do |f| %>
+  <%= f.input :date,
+          as: :string,
+          input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
+  <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+  <div data-controller="toggle">
+    <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
+    <hr>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Find new ingredients
+      </button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= f.simple_fields_for :portions do |portion_fields| %>
+    
+        <div data-ingredients-target="ingredients">
+            <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+          </div>
+          <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+        <% end %>
+
+        <%= f.submit "Add", class:"btn btn-dark-green" %>
+      </div>
+  </div>
+<% end %>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= text_field_tag :search_input, params[:search_input], class: "form-control", placeholder: "Type a keyword", data: { 'ingredients-target': "input"} %>
+          <%= button_tag "Find ingredients", data: { action: "click->ingredients#find"} %>
+          <hr>
+          <div data-ingredients-target="details"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

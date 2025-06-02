@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   root "pages#home", as: :root
   get "account", to: "pages#account", as: :account
 
-  resources :meals, only: [:show, :index, :new, :create, :destroy] do
-    resources :portions, only: [:create, :new]
+  resources :meals, only: [:show, :index, :new, :edit, :update, :create, :destroy] do
+    resources :portions, only: [:create]
   end
   resources :portions, only: [:show, :destroy, :update]
   resources :ingredients, only: [ :create ]

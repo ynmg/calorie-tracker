@@ -3,7 +3,7 @@
 <div class="meals-grid" data-controller="ingredients" data-ingredients-url-value="<%= ingredients_url %>">
   <%= render "form", meal: @meal %>
 
-  <div class="text-secondary">
+  <div class="text-secondary" data-ingredients-target="details">
     <%= render "details", meal: @meal %>
     <% if @meal.persisted? %>
       <%= link_to "confirm", meals_path, class:"float-end btn btn-outline-dark-green" %>

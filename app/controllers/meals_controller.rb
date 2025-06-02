@@ -20,13 +20,31 @@ class MealsController < ApplicationController
     @ingredients = Ingredient.all
   end
 
+  def edit
+    @meal = Meal.find(params[:id])
+        1.times do
+      @meal.portions.build
+    end
+    @ingredients = Ingredient.all
+  end
+
+  def update
+    @meal = Meal.find(params[:id])
+
+    if @meal.update(meal_params)
+      redirect_to edit_meal_path(@meal)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
 
-    if @meal.save
+    if @meal.save!
       # redirect_to meals_path
-      redirect_to new_meal_portion_path(@meal)
+      redirect_to edit_meal_path(@meal)
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,6 +1,11 @@
 class PortionsController < ApplicationController
   before_action :set_portion, only: [ :show, :update ]
 
+  def new
+    @meal = Meal.find(params[:meal_id])
+    @portion = @meal.portions.new
+  end
+
   def show
   end
 
