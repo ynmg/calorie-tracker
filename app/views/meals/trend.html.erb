@@ -1,0 +1,34 @@
+<div class="container-image text-center">
+    <h2>Stay on Track: Weekly Calorie Summary</h2>
+</div>
+
+<%= link_to "< Daily", meals_path %>
+
+<div class="container w-50 chart-background">
+  <%= bar_chart @calories_by_day,
+    xtitle: "kcal",
+    xtitlecolor: "#074B2B",
+    height: "300px",
+    # colors: ["#11AE50", "#A8D5BA", "#66bb6a"],
+    colors: ["#7cb342", "#558b2f"],
+    library: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Calories Over Week",
+          color: "#074B2B",
+          font: { size: 18 }
+        }
+      },
+    scales: {
+      x: {
+        ticks: { color: "#074B2B" },     # X-axis label color
+        grid: { color: "#73946B" }       # X-axis grid line color
+      },
+      y: {
+        ticks: { color: "#074B2B" },     # Y-axis label color
+        grid: { color: "#73946B" }       # Y-axis grid line color
+      }
+    }
+  } %>
+</div>

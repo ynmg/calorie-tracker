@@ -2,6 +2,7 @@
     <h2>Total Calories for Today: <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
 </div>
 
+
 <!-- <div class="container">
   <ul>
     <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories %> kcal</li>
@@ -10,8 +11,10 @@
     <li><strong>Snacks</strong>: <%= @snacks.total_calories %> kcal</li>
       <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
   </ul> -->
-
-<%= link_to "Back", account_path %>
+<div class="nav-page d-flex justify-content-between">
+  <%= link_to "< Back", account_path %>
+  <%= link_to "Weekly >", trend_path %>
+</div>
 <h2 class="text-center">Today's Calorie Breakdown</h2>
 <div class="container w-75">
   <div class="list-group">
@@ -19,17 +22,14 @@
       <div class="breakfast-breakdown">
         <% if @breakfasts.present?  %>
             <h3>Breakfast: </h3>
-
             <%# @breakfasts.each do |breakfast| %>
               <%# <% breakfast.ingredients.each do |ingredient| %>
                 <%# <!-- <p><%= ingredient.name  | calories: <%= ingredient.calories  kcal</p> %>
               <%# <% end %>
-
               <% @breakfasts.each do |breakfast| %>
                 <% breakfast.portions.each do |portion| %>
                   <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories <%= portion.ingredient.calories %> kcal per 100 g</p>
               <% end %>
-
               <p>
                 <strong>Total for meal: <%= breakfast.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(breakfast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
@@ -39,36 +39,29 @@
             <hr>
         <% end %>
       </div>
-
       <div class="lunch-breakdown">
         <% if @lunches.present?  %>
             <h3>Lunch: </h3>
-
             <% @lunches.each do |lunch| %>
               <% lunch.portions.each do |portion| %>
                 <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
-
               <p>
                 <strong>Total for meal: <%= lunch.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(lunch), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
-
             <% end %>
             <strong>Total lunch calories: <%= @lunches.total_calories.to_i %> kcal</strong>
             <hr>
         <% end %>
       </div>
-
       <div class="dinner-breakdown">
         <% if @dinners.present? %>
             <h3>Dinner: </h3>
-
             <% @dinners.each do |dinner| %>
               <% dinner.portions.each do |portion| %>
                 <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
-
               <p>
                 <strong>total for meal: <%= dinner.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(dinner), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
@@ -78,16 +71,13 @@
             <hr>
         <% end %>
       </div>
-
       <div class="snack-breakdown">
         <% if @snacks.present? %>
             <h3>Snacks: </h3>
-
             <% @snacks.each do |snack| %>
               <% snack.portions.each do |portion| %>
                 <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
-
               <p>
                 <strong>total for meal: <%= snack.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(snack), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
@@ -97,11 +87,9 @@
             <hr>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
-
   <!-- <div class="total-breakdown">
     <h3>Total Calories for Today: <%= @meals.total_calories %> kcal</h3>
   <%# </div> -->

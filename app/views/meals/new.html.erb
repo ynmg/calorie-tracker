@@ -1,31 +1,40 @@
 <% render shared/_addto_navbar.html.erb %>
 <%= yield %>
 <div class="container-full">
-<div class="form-wide">
-<h2>What did you eat?</h2>
-<div class="meals-grid ">
-  <%= simple_form_for @meal do |f| %>
-    <%= f.input :date %>
-    <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
-    <div data-controller="toggle">
-      <button data-action="click->toggle#fire" class="btn btn-lg btn-signup">Track Your Meal</button>
-
-        <div data-toggle-target="togglableElement" class="d-none">
-          <%= f.simple_fields_for :portions do |portion_fields| %>
-            <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
-            <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
-          <% end %>
-
-          <%= f.submit "Add", class:"btn btn-lg btn-signup" %>
-        </div>
+  <div class="form-wide">
+    <div class="meals-grid ">
+      <%= simple_form_for @meal do |f| %>
+        <h2>What did you eat?</h2>
+        <%= f.input :date,
+              as: :string,
+              input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
+        <%# <i class="fa-solid fa-bread-slice fa-bounce"></i> %>
+        <%# <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+        <%= f.input :name, as: :radio_buttons, collection: [
+          [raw("#{fa_icon('coffee', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Breakfast"), 'Breakfast'],
+          [raw("#{fa_icon('hamburger', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Lunch"), 'Lunch'],
+          [raw("#{fa_icon('utensils', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Dinner"), 'dinner'],
+          [raw("#{fa_icon('cookie', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Snack"), 'Snack']
+        ], label: false %>
+        <div data-controller="toggle">
+          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
+           <div data-toggle-target="togglableElement" class="d-none">
+             <%= f.simple_fields_for :portions do |portion_fields| %>
+               <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+               <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+             <% end %>
+             <%= f.submit "Add", class:"btn btn-lg btn-signup" %>
+            </div>
+         </div>
+      <% end %>
+      
+      <div class="text-secondary">
+        <h2>Your Selected Foods</h2>
+        <p>Please review the food items and quantities you've added before submitting this meal.</p>
+        <%= render "details", meal: @meal %>
+      </div>
     </div>
-  <% end %>
   </div>
-
-  <div class="text-secondary">
-    <%= render "details", meal: @meal %>
-  </div>
-</div>
 </div>
 <%# search bar for next week API %>
 <%# <div class="row justify-content-center">
@@ -38,5 +47,4 @@
         %>
       <%# <%= submit_tag "Search", name: "", class: "btn btn-dark-green" %>
     <%# <% end %>
-  <%# </div>
-</div> %>
+  <%# </div> </div> %>
