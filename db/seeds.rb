@@ -11,6 +11,7 @@ User.destroy_all
 Meal.destroy_all
 Ingredient.destroy_all
 Portion.destroy_all
+MotivationalQuote.destroy_all
 
 puts "Creating users..."
 user1 = User.create!(email: "abc@example", password: "abcdef", username: "ABC")
@@ -41,3 +42,14 @@ portion3 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient3)
 portion4 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient4)
 portion5 = Portion.create!(quantity: 150, meal: meal2, ingredient: ingredient5)
 puts "#{Portion.count} portions created"
+
+puts "creating quotes..."
+quote1 = MotivationalQuote.create!(content: "Balance your plate: protein, fiber, healthy fats")
+quote2 = MotivationalQuote.create!(content: "Calories count — and so do you")
+quote3 = MotivationalQuote.create!(content: "Track it to crack it!")
+quote4 = MotivationalQuote.create!(content: "Healthy habits start with your plate")
+quote5 = MotivationalQuote.create!(content: "Less sugar, more smiles")
+quote6 = MotivationalQuote.create!(content: "Healthy food, happy mood")
+quote7 = MotivationalQuote.create!(content: "Five veggs a day keeps illness away")
+
+puts "#{MotivationalQuote.count} quotes created"

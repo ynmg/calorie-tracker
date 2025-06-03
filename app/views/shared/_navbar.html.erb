@@ -1,12 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag "https://res.cloudinary.com/dai2ox3tx/image/upload/v1748363496/logo_bfyitp.png" %>
       <% end %>
+      <h1 class="navbar-title mb-0">Kaloree</h1>
     </div>
 
-    <h1 class="navbar-title mb-0">Kaloree</h1>
+    <div class="shiny quote d-flex align-items-center">
+      <p><%= MotivationalQuote.order("RANDOM()").first.content %></p>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
