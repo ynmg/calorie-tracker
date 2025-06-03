@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "portions/update"
   get "portions/show"
+  get "meals/trend", as: :trend
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,9 +17,9 @@ Rails.application.routes.draw do
   root "pages#home", as: :root
   get "account", to: "pages#account", as: :account
 
-  resources :meals, only: [:show, :index, :new, :edit, :update, :create, :destroy] do
-    resources :portions, only: [:create]
+  resources :meals, only: [:show, :index, :new, :create, :destroy] do
+    resources :portions, only: [:new, :create]
   end
-  resources :portions, only: [:show, :new, :destroy, :update]
+  resources :portions, only: [:show, :destroy, :update]
   resources :ingredients, only: [ :create ]
 end

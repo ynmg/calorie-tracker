@@ -6,7 +6,6 @@ export default class extends Controller {
   static values = { url: String }
 
   connect() {
-    console.log("Hello", this.urlValue)
     this.token = document.querySelector('meta[name="csrf-token"]').content
   }
 
@@ -45,12 +44,10 @@ export default class extends Controller {
           ul.appendChild(li)
         })
         this.detailsTarget.insertAdjacentElement("afterbegin", ul)
-        console.log(foods)
       })
   }
 
   save(e) {
-    console.dir(e.currentTarget)
     const button = e.currentTarget
     const liElement = e.currentTarget.parentElement
     const text = liElement.innerText

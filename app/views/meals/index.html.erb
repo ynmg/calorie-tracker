@@ -1,6 +1,8 @@
 <div class="container-image text-center">
     <h2>Total Calories for Today: <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
 </div>
+
+
 <!-- <div class="container">
   <ul>
     <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories %> kcal</li>
@@ -9,7 +11,10 @@
     <li><strong>Snacks</strong>: <%= @snacks.total_calories %> kcal</li>
       <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
   </ul> -->
-<%= link_to "Back", account_path %>
+<div class="nav-page d-flex justify-content-between">
+  <%= link_to "< Back", account_path %>
+  <%= link_to "Weekly >", trend_path %>
+</div>
 <h2 class="text-center">Today's Calorie Breakdown</h2>
 <div class="container w-75">
   <div class="list-group">
@@ -23,7 +28,7 @@
               <%# <% end %>
               <% @breakfasts.each do |breakfast| %>
                 <% breakfast.portions.each do |portion| %>
-                  <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories: <%= portion.ingredient.calories %> kcal</p>
+                  <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories <%= portion.ingredient.calories %> kcal per 100 g</p>
               <% end %>
               <p>
                 <strong>Total for meal: <%= breakfast.total_calories.to_i %> kcal</strong>
@@ -39,10 +44,10 @@
             <h3>Lunch: </h3>
             <% @lunches.each do |lunch| %>
               <% lunch.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>Total for meal: <%= lunch.total_calories %> kcal</strong>
+                <strong>Total for meal: <%= lunch.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(lunch), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
@@ -55,10 +60,10 @@
             <h3>Dinner: </h3>
             <% @dinners.each do |dinner| %>
               <% dinner.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>total for meal: <%= dinner.total_calories %> kcal</strong>
+                <strong>total for meal: <%= dinner.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(dinner), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
@@ -71,10 +76,10 @@
             <h3>Snacks: </h3>
             <% @snacks.each do |snack| %>
               <% snack.portions.each do |portion| %>
-                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal</p>
+                <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
               <% end %>
               <p>
-                <strong>total for meal: <%= snack.total_calories %> kcal</strong>
+                <strong>total for meal: <%= snack.total_calories.to_i %> kcal</strong>
                 <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(snack), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </p>
             <% end %>
