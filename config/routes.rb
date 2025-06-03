@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   resources :meals, only: [:show, :index, :new, :edit, :update, :create, :destroy] do
     resources :portions, only: [:create]
   end
-  resources :portions, only: [:show, :destroy, :update]
+  resources :portions, only: [:show, :new, :destroy, :update]
   resources :ingredients, only: [ :create ]
 end
