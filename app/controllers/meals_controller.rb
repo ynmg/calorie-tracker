@@ -44,8 +44,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     @meal.user = current_user
 
-    if @meal.save
-      # redirect_to meals_path
+    if @meal.save!
       redirect_to new_meal_portion_path(@meal)
     else
       render :new, status: :unprocessable_entity

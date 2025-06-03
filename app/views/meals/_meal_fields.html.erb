@@ -1,0 +1,10 @@
+<h2>What did you eat?</h2>
+<%= f.input :date,
+      as: :string,
+      input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
+<%= f.input :name, as: :radio_buttons, collection: [
+  [raw("#{fa_icon('coffee', animation: 'beat', color: " #537D5D", animation_duration: "4s")} Breakfast"), 'Breakfast'],
+  [raw("#{fa_icon('hamburger', animation: 'beat', color: " #537D5D", animation_duration: "4s")} Lunch"), 'Lunch'],
+  [raw("#{fa_icon('utensils', animation: 'beat', color: " #537D5D", animation_duration: "4s")} Dinner"), 'dinner'],
+  [raw("#{fa_icon('cookie', animation: 'beat', color: " #537D5D", animation_duration: "4s")} Snack"), 'Snack']
+], label: false %>
