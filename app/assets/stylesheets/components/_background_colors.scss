@@ -9,6 +9,9 @@
   background-color: $dark_green;
 }
 
+ul {
+  list-style-type: none;
+}
 .under-green {
 //  background: linear-gradient(to right, rgb(250, 128, 114), $light_green )
  background: linear-gradient(to right, rgb(13,13,13), $beige )
@@ -43,14 +46,26 @@
 }
 
 .btn-query {
-  background: linear-gradient(to right, rgb(129, 162, 177), rgb(129, 162, 177));
+  // background: linear-gradient(to right, rgb(129, 162, 177), rgb(129, 162, 177));
+  background-color: rgb(222, 57, 93);
   color: white;
   border: none;
   border-radius: 7px;
   width: 40%;
 }
 
+.btn-query:hover {
+  color: $bright_green;
+}
 
+#my-tab-content {
+  background: linear-gradient(to right,  $dark_green, $light_green );
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 40%;
+  overflow: scroll;
+}
 
 .btn-signup-option {
       background: linear-gradient(to right, $light_green, $dark_green );

@@ -4,7 +4,7 @@
       <%= simple_form_for @meal do |f| %>
         <%= render 'meals/meal_fields', f: f %>
         <div data-controller="toggle">
-          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
+          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Choose ingredients</button>
           <div data-toggle-target="togglableElement" class="d-none">
             <%= f.simple_fields_for :portions do |portion_fields| %>
               <div data-ingredients-target="ingredients">
@@ -19,6 +19,7 @@
           </div>
         </div>
       <% end %>
+      
       <div class="text-secondary">
         <h2>Your Selected Foods</h2>
         <p>Please review the food items and quantities you've added before submitting this meal.</p>
