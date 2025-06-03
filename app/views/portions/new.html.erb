@@ -16,7 +16,7 @@
             [raw("#{fa_icon('cookie', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Snack"), 'Snack']
            ], label: false %>
         <% end %>
-        
+
         <button data-action="click->toggle#fire" class="btn btn-lg btn-signup">Track Your Meal</button>
         <div data-toggle-target="togglableElement">
           <%= simple_form_for [@meal, @portion] do |portion_fields| %>
@@ -29,16 +29,14 @@
       <div class="text-secondary">
         <h2>Your Selected Foods</h2>
         <p>Please review the food items and quantities you've added before submitting this meal.</p>
-      
 
-        <% if @meal.portions.empty? %>
+        <%= render "meals/details", meal: @meal %>
+        <% if @meal.portions.empty? %>  
           <%= link_to "Quit?", meal_path(@meal), class:"float-end btn btn-lg btn-query", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% else%>
           <br>
-          <%= render "meals/details", meal: @meal %>
           <%= link_to "Confirm", meals_path, class:"float-end btn btn-lg btn-tracker" %>
         <% end %>
       </div>
   </div>
 </div>
-
