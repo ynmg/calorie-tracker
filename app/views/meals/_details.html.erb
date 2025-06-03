@@ -5,8 +5,8 @@
     <div class="d-flex justify-content-between">
       <p><%= portion.ingredient.name %> | <%= portion.quantity %>g</p>
       <p><%= portion.ingredient.calories %> kcal</p>
-<%= portion.id %>
-<%= link_to 'Delete this ingredient?', portion_path(portion.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= portion.id %>
+  <%= link_to 'Delete this ingredient?', portion_path(portion.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
     </div>
   <% end %>
