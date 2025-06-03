@@ -1,8 +1,8 @@
 <div class="container-image text-center">
     <h2>Stay on Track: Weekly Calorie Summary</h2>
+    <%= link_to "< Daily", meals_path %>
 </div>
 
-<%= link_to "< Daily", meals_path %>
 
 <div class="container w-50 chart-background">
   <%= bar_chart @calories_by_day,

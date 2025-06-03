@@ -15,7 +15,7 @@
           [raw("#{fa_icon('cookie', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Snack"), 'Snack']
         ], label: false %>
         <div data-controller="toggle">
-          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
+          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Choose ingredients</button>
            <div data-toggle-target="togglableElement" class="d-none">
              <%= f.simple_fields_for :portions do |portion_fields| %>
                <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>

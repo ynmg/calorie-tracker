@@ -4,6 +4,45 @@
 // #9EBC8A	(158, 188, 138)
 // #D2D0A0	(210, 208, 160)
 
+.card-tracker {
+//  background-color: rgba(158,188,138, 0.2);
+  background-color: white;
+  overflow-y: scroll;
+//  overflow-x and overflow-y are also options
+  font-family: Nunito, Helvetica, "sans-serif";
+  h1, h2, h3, h4, h5, p {
+    color: $deep_green;
+  }
+  h6 {
+    color:rgba(83, 125, 93, 0.7);
+  }
+  color: $deep_green;
+  border-radius: 7px;
+  display: flex;
+  width: 40%;
+  height: 360px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: space-beween;
+  padding: 22px;
+  margin: 36px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.text-inactive-tab {
+  color: $dark_green;
+}
+
+.text-inactive-tab:hover {
+  color: $bright_green;
+  font-weight: bolder;
+}
+
+.container-centered-flex {
+  display: flex;
+  justify-content: center;
+}
+
 .container-image {
   border-top: 2px solid black;
   border-width: 2px;

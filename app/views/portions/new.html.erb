@@ -17,7 +17,7 @@
            ], label: false %>
         <% end %>
 
-        <button data-action="click->toggle#fire" class="btn btn-lg btn-signup">Track Your Meal</button>
+        <button data-action="click->toggle#fire" class="btn btn-lg btn-signup">Choose ingredients</button>
         <div data-toggle-target="togglableElement">
           <%= simple_form_for [@meal, @portion] do |portion_fields| %>
             <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
@@ -31,10 +31,9 @@
         <p>Please review the food items and quantities you've added before submitting this meal.</p>
 
         <%= render "meals/details", meal: @meal %>
-        <% if @meal.portions.empty? %>  
+        <% if @meal.portions.empty? %>
           <%= link_to "Quit?", meal_path(@meal), class:"float-end btn btn-lg btn-query", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% else%>
-          <br>
           <%= link_to "Confirm", meals_path, class:"float-end btn btn-lg btn-tracker" %>
         <% end %>
       </div>
