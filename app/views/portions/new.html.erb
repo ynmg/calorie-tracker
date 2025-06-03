@@ -1,44 +1,44 @@
-<div class="container w-75">
-  <div class="meals-grid">
-    <div>
-    <%= simple_form_for @meal do |f| %>
-      <h2>What did you eat?</h2>
-      <%#= f.input :date %>
-      <%= f.input :date,
-              as: :string,
-              input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
-      <%# <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
-      <%= f.input :name, as: :radio_buttons, collection: [
-        [raw("#{fa_icon('coffee', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Breakfast"), 'Breakfast'],
-        [raw("#{fa_icon('hamburger', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Lunch"), 'Lunch'],
-        [raw("#{fa_icon('utensils', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Dinner"), 'Dinner'],
-        [raw("#{fa_icon('cookie', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Snack"), 'Snack']
-      ], label: false %>
-    <% end %>
-
-        <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Track Your Meal</button>
-
-          <div data-toggle-target="togglableElement">
-            <%= simple_form_for [@meal, @portion] do |portion_fields| %>
-              <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
-              <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
-              <%= portion_fields.submit "Add", class:"btn btn-dark-green"%>
-
-            <% end %>
-          </div>
+<div class="container-full">
+   <div class="form-wide">
+    <div class="meals-grid">
+      <div>
+        <%= simple_form_for @meal do |f| %>
+         <h2>What did you eat?</h2>
+         <%#= f.input :date %>
+          <%= f.input :date,
+                as: :string,
+                input_html: { data: { controller: "datepicker", datepicker_max_date: "today" } } %>
+          <%# <%= f.input :name, label:"Meal", collection: ["Breakfast", "Lunch", "Dinner", "Snack"] %>
+          <%= f.input :name, as: :radio_buttons, collection: [
+            [raw("#{fa_icon('coffee', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Breakfast"), 'Breakfast'],
+            [raw("#{fa_icon('hamburger', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Lunch"), 'Lunch'],
+            [raw("#{fa_icon('utensils', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Dinner"), 'Dinner'],
+            [raw("#{fa_icon('cookie', animation: 'beat', color: " #1bbc9b", animation_duration: "4s")} Snack"), 'Snack']
+           ], label: false %>
+        <% end %>
+        
+        <button data-action="click->toggle#fire" class="btn btn-lg btn-signup">Track Your Meal</button>
+        <div data-toggle-target="togglableElement">
+          <%= simple_form_for [@meal, @portion] do |portion_fields| %>
+            <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+            <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+            <%= portion_fields.submit "Add", class:"btn btn-lg btn-signup"%>
+          <% end %>
+         </div>
       </div>
+      <div class="text-secondary">
+        <h2>Your Selected Foods</h2>
+        <p>Please review the food items and quantities you've added before submitting this meal.</p>
+      
 
-
-    <div class="text-secondary">
-      <h2>Your Selected Foods</h2>
-      <p>Please review the food items and quantities you've added before submitting this meal.</p>
-
-      <% if @meal.portions.empty? %>
-        <%= link_to "Quit?", meal_path(@meal), class:"float-end btn-lg btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% else%>
-        <%= render "meals/details", meal: @meal %>
-        <%= link_to "Confirm", meals_path, class:"float-end btn-lg btn-outline-dark-green" %>
-      <% end %>
-    </div>
+        <% if @meal.portions.empty? %>
+          <%= link_to "Quit?", meal_path(@meal), class:"float-end btn btn-lg btn-query", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% else%>
+          <br>
+          <%= render "meals/details", meal: @meal %>
+          <%= link_to "Confirm", meals_path, class:"float-end btn btn-lg btn-tracker" %>
+        <% end %>
+      </div>
   </div>
 </div>
+
