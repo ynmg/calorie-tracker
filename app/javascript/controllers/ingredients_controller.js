@@ -39,7 +39,8 @@ export default class extends Controller {
           li.insertAdjacentHTML(
             "beforeend",
             `
-              <button data-action="click->ingredients#save">save ingredient</button>
+              <button class="btn-dark-green" data-action="click->ingredients#save"> <i class="fa fa-check"></i>
+              </button>
             `
           )
           ul.appendChild(li)
