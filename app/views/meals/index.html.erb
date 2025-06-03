@@ -12,8 +12,7 @@
       <%= link_to "< Back", account_path %>
       <%= link_to "Weekly >", trend_path %>
   </div>
-</div
->
+</div>
 
 <ul class="nav nav-tabs container-centered-flex" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -71,7 +70,7 @@
       <% end %>
   </div>
 
-  <div class="tab-pane fade card-tracker" id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
+  <div class="dinner-breakdown tab-pane fade card-tracker" id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
     <% if @dinners.present? %>
       <h3>Dinner: </h3>
 
