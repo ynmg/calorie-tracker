@@ -1,0 +1,18 @@
+.flatpickr-months .flatpickr-month {
+  background: #537D5D !important;
+}
+.flatpickr-monthDropdown-months {
+  background: #537D5D !important;
+}
+.flatpickr-weekdays {
+  background: #537D5D !important;
+}
+.flatpickr-weekday {
+  background: #537D5D !important;
+}
+
+.flatpickr-day.today:hover, .flatpickr-day.today:focus {
+    border-color: #bbb;
+    background: #537D5D !important;
+    color: #fff;
+}
