@@ -11,6 +11,7 @@ export default class extends Controller {
 
   find(e) {
     e.preventDefault()
+    console.log("hello");
     const userInput = this.inputTarget.value
     const apiKey = "0xF8edQRnGlNQ5IcSj7cTwWqZNYcFYH3gXECfetx"
 
