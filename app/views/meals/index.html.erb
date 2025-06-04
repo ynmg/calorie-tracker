@@ -62,7 +62,7 @@
       <h3>Breakfast: </h3>
         <% @breakfasts.each do |breakfast| %>
           <% breakfast.portions.each do |portion| %>
-            <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | Calories <%= portion.ingredient.calories %> kcal per 100 g</p>
+            <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g/ml | Calories <%= portion.ingredient.calories %> kcal per 100g/ml</p>
           <% end %>
           <hr>
           <p>
@@ -82,7 +82,7 @@
         <h3>Lunch: </h3>
         <% @lunches.each do |lunch| %>
           <% lunch.portions.each do |portion| %>
-            <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g</p>
+            <p><%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g/ml | calories: <%= portion.ingredient.calories %> kcal per 100g/ml</p>
           <% end %>
           <hr>
           <p>
@@ -104,7 +104,7 @@
       <% @dinners.each do |dinner| %>
         <% dinner.portions.each do |portion| %>
           <p>
-            <%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g
+            <%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g/ml | calories: <%= portion.ingredient.calories %> kcal per 100g/ml
           </p>
         <% end %>
         <hr>
@@ -125,7 +125,7 @@
     <% @snacks.each do |snack| %>
       <% snack.portions.each do |portion| %>
         <p>
-          <%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g | calories: <%= portion.ingredient.calories %> kcal per 100g
+          <%= portion.ingredient.name.capitalize %> x <%= portion.quantity %>g/ml | calories: <%= portion.ingredient.calories %> kcal per 100g/ml
         </p>
         <% end %>
         <hr>
