@@ -3,8 +3,8 @@
 <% @meal.portions.each do |portion| %>
   <% if portion.ingredient.present? %>
     <div class="d-flex justify-content-between">
-      <p><%= portion.ingredient.name.capitalize %> | <%= portion.quantity %> g</p>
-      <p><%= portion.ingredient.calories %> kcal per 10 g</p>
+      <p><%= portion.ingredient.name.capitalize %> | <%= portion.quantity %>g/ml</p>
+      <p><%= portion.ingredient.calories %> kcal per 100g/ml</p>
       <p><%= portion.ingredient.calories * portion.quantity/100%> kcals added</p>
       <%= link_to "<i class='fa fa-trash'></i>".html_safe, portion_path(portion.id), class: "btn btn-sm btn-query-trash", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
