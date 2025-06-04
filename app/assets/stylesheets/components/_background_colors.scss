@@ -37,6 +37,13 @@ ul {
   width: 100%;
 }
 
+.nav-item {
+  .active{
+    background: linear-gradient(to right,  $dark_green, $light_green );
+    border-radius: 7px;
+  }
+}
+
 .btn-tracker {
   background: linear-gradient(to right,  $dark_green, $light_green );
   color: white;

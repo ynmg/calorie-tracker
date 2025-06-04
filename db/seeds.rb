@@ -56,8 +56,9 @@ quote7 = MotivationalQuote.create!(content: "Five fruit and veg a day keeps illn
 quote8 = MotivationalQuote.create!(content: "Take care of your body. It's the only place you have to live")
 quote9 = MotivationalQuote.create!(content: "Your diet is a bank account. Every good food choice is an investment")
 quote10 = MotivationalQuote.create!(content: "'Let food be thy medicine and medicine be thy food.' - Hippocrates ")
-quote11 = MotivationalQuote.create!(content: "He who takes medicine and neglects to diet wastes the skill of his doctors")
-quote12 = MotivationalQuote.create!(content: "Health is not about the weight you lose, but about the life, you gain")
+quote11 = MotivationalQuote.create!(content: "S/he who takes medicine and neglects diet wastes the skill of their doctor")
+quote12 = MotivationalQuote.create!(content: "Your body is a temple, but only if you treat it as one")
 quote13 = MotivationalQuote.create!(content: "Start where you are, use what you have, do what you can")
+
 
 puts "#{MotivationalQuote.count} quotes created"
