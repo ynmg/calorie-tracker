@@ -28,11 +28,13 @@ meal6 = Meal.create!(name: "Snack", date: "2025-05-28", user: user1)
 puts "#{Meal.count} meals created"
 
 puts "Creating ingredients..."
-ingredient1 = Ingredient.create!(name: "oats", calories: 52)
-ingredient2 = Ingredient.create!(name: "milk", calories: 64)
-ingredient3 = Ingredient.create!(name: "salmon", calories: 55)
+ingredient1 = Ingredient.create!(name: "oats", calories: 389)
+ingredient2 = Ingredient.create!(name: "milk", calories: 59)
+ingredient3 = Ingredient.create!(name: "salmon, cooked", calories: 182)
 ingredient4 = Ingredient.create!(name: "lettuce", calories: 14)
-ingredient5 = Ingredient.create!(name: "konjac noodles", calories: 7)
+ingredient5 = Ingredient.create!(name: "konjac noodles", calories: 10)
+ingredient6 = Ingredient.create!(name: "tomatoes", calories: 18)
+ingredient7 = Ingredient.create!(name: "ketchup", calories: 97)
 puts "#{Ingredient.count} ingredients created"
 
 puts "creating portions..."
