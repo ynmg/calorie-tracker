@@ -26,7 +26,14 @@
   align-items: space-beween;
   padding: 22px;
   margin: 36px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.container-spaced-evenly {
+  padding: 40px;
+  display:flex;
+  justify-content: space-between;
 }
 
 .text-inactive-tab {
@@ -48,7 +55,7 @@
   border-width: 2px;
   border-color:$deep_green;
   padding: 40px;
-  height: 36vh;
+  height: 34vh;
   color: $deep_green;
   display: flex;
   flex-direction: column;

@@ -1,7 +1,12 @@
 class MealsController < ApplicationController
-  def index
-    @meals = current_user.meals.where(date: Date.today)
 
+  def index
+    if params[:date] != nil
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
+    @meals = current_user.meals.where(date: @date)
     @breakfasts = @meals.where(name: "Breakfast")
     @lunches = @meals.where(name: "Lunch")
     @dinners = @meals.where(name: "Dinner")
