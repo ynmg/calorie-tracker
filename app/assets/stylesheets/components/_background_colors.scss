@@ -51,7 +51,18 @@ ul {
   color: white;
   border: none;
   border-radius: 7px;
-  width: 40%;
+  width: auto;
+}
+
+.btn-query-trash {
+  // background: linear-gradient(to right, rgb(129, 162, 177), rgb(129, 162, 177));
+  background-color: rgb(222, 57, 93);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 30px;
+  height: 30px;
+  line-height: 20px;
 }
 
 .btn-query:hover {
