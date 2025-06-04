@@ -1,6 +1,6 @@
 <div class="container-image text-center">
-    <h2>Total Calories <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
-    <h2 class="text-center">Calorie Breakdown for <%= @date.strftime("%A, %B %-d, %Y") %> :</h2>
+    <h2>Total Calories for Today: <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
+    <h2 class="text-center">Today's Calorie Breakdown</h2>
     <ul>
       <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories.to_i %> kcal</li>
       <li><strong>Lunch</strong>: <%= @lunches.total_calories.to_i %> kcal</li>
@@ -8,23 +8,12 @@
       <li><strong>Snacks</strong>: <%= @snacks.total_calories.to_i %> kcal</li>
         <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
     </ul>
-    <%#div class="nav-page d-flex justify-content-between">
-
-
-  </div>%>
+    <div class="nav-page d-flex justify-content-between">
+      <%= link_to "< Back", account_path %>
+      <%= link_to "Weekly >", trend_path %>
+  </div>
 </div
 >
-<div class="container-spaced-evenly">
-      <%= link_to "< Back", account_path %>
-  <% unless @date == nil %>
-    <%= link_to "Previous day", meals_path(date: (@date - 1)) %>
-    <% if @date < Date.today%>
-      <%= link_to "Next day", meals_path(date: (@date + 1)) %>
-    <% end %>
-  <% end %>
-        <%= link_to "Weekly >", trend_path %>
-</div>
-
 
 <ul class="nav nav-tabs container-centered-flex" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
