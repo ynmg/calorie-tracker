@@ -38,11 +38,12 @@ export default class extends Controller {
             )?.value,
           };
           const li = document.createElement("li");
-          li.textContent = `name: ${foodObj.description}, calories: ${foodObj.calories}`;
+          li.classList = "search-result";
+          li.textContent = `Name: ${foodObj.description}, Calories: ${foodObj.calories}`;
           li.insertAdjacentHTML(
             "beforeend",
             `
-              <button data-action="click->ingredients#save"> <i class="fa fa-check"></i>
+              <button class="search-result" data-action="click->ingredients#save"> <i class="fa fa-check"></i>
               </button>
             `
           );
@@ -85,7 +86,7 @@ export default class extends Controller {
         "X-CSRF-Token": this.token,
       },
     }).then((response) => {
-      button.style.background = "#537D5D"
+      button.style.background = "#9EBC8A"
       const selectElements = this.ingredientsTargets.map((target) => {
         return target.querySelector("select")
       })
