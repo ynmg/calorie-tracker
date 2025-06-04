@@ -35,6 +35,7 @@ ingredient4 = Ingredient.create!(name: "lettuce", calories: 14)
 ingredient5 = Ingredient.create!(name: "konjac noodles", calories: 10)
 ingredient6 = Ingredient.create!(name: "tomatoes", calories: 18)
 ingredient7 = Ingredient.create!(name: "ketchup", calories: 97)
+ingredient8 = Ingredient.create!(name: "banana", calories: 89)
 puts "#{Ingredient.count} ingredients created"
 
 puts "creating portions..."
@@ -56,9 +57,8 @@ quote7 = MotivationalQuote.create!(content: "Five fruit and veg a day keeps illn
 quote8 = MotivationalQuote.create!(content: "Take care of your body. It's the only place you have to live")
 quote9 = MotivationalQuote.create!(content: "Your diet is a bank account. Every good food choice is an investment")
 quote10 = MotivationalQuote.create!(content: "'Let food be thy medicine and medicine be thy food.' - Hippocrates ")
-quote11 = MotivationalQuote.create!(content: "S/he who takes medicine and neglects diet wastes the skill of their doctor")
-quote12 = MotivationalQuote.create!(content: "Your body is a temple, but only if you treat it as one")
-quote13 = MotivationalQuote.create!(content: "Start where you are, use what you have, do what you can")
+quote11 = MotivationalQuote.create!(content: "Your body is a temple, but only if you treat it as one")
+quote12 = MotivationalQuote.create!(content: "Start where you are, use what you have, do what you can")
 
 
 puts "#{MotivationalQuote.count} quotes created"
