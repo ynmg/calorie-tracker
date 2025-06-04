@@ -9,7 +9,8 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 export default class extends Controller {
   connect() {
     flatpickr(this.element, {
-      dateFormat: this.element.dataset.datepickerFormat || "d-m-Y",
+      dateFormat: this.element.dataset.datepickerFormat || "Y-m-d",
+      // altFormat: "F j, Y",
       maxDate: this.element.dataset.datepickerMaxDate || null
     });
   }

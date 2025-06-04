@@ -8,6 +8,7 @@
       <li><strong>Snacks</strong>: <%= @snacks.total_calories.to_i %> kcal</li>
         <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
     </ul>
+
     <%#div class="nav-page d-flex justify-content-between">
 
 
@@ -24,6 +25,7 @@
   <% end %>
         <%= link_to "Weekly >", trend_path %>
 </div>
+
 
 
 <ul class="nav nav-tabs container-centered-flex" id="myTab" role="tablist">
@@ -82,7 +84,7 @@
       <% end %>
   </div>
 
-  <div class="tab-pane fade card-tracker" id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
+  <div class="dinner-breakdown tab-pane fade card-tracker" id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
     <% if @dinners.present? %>
       <h3>Dinner: </h3>
 

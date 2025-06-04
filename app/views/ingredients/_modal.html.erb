@@ -2,17 +2,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Find ingredients: </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
           <%= text_field_tag :search_input, params[:search_input], class: "form-control", placeholder: "Type a keyword", data: { 'ingredients-target': "input"} %>
-          <%= button_tag "Find ingredients", data: { action: "click->ingredients#find"} %>
+          <%= button_tag "Search", data: { action: "click->ingredients#find"} %>
           <hr>
           <div data-ingredients-target="details"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+        <button type="button" class="btn btn-outline-dark-green" data-bs-dismiss="modal">Done</button>
       </div>
     </div>
   </div>

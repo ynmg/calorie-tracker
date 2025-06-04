@@ -10,43 +10,55 @@ export default class extends Controller {
   }
 
   find(e) {
-    e.preventDefault()
+    e.preventDefault();
     console.log("hello");
-    const userInput = this.inputTarget.value
-    const apiKey = "0xF8edQRnGlNQ5IcSj7cTwWqZNYcFYH3gXECfetx"
+    const userInput = this.inputTarget.value;
+    const apiKey = "0xF8edQRnGlNQ5IcSj7cTwWqZNYcFYH3gXECfetx";
+    const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${userInput}`;
 
-    const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${userInput}`
+    // Show loading text
+    this.detailsTarget.innerHTML = "<p>Loading...</p>";
 
     fetch(url, {
       method: "GET",
     })
       .then((response) => {
-        return response.json()
+        return response.json();
       })
       .then((data) => {
-        const foods = data.foods.slice(0, 20)
-        const ul = document.createElement("ul")
-        ul.insertAdjacentHTML("afterbegin", "<h2>Results</h2>")
+        const foods = data.foods.slice(0, 20);
+        const ul = document.createElement("ul");
+        ul.insertAdjacentHTML("afterbegin", "<h2>Results</h2>");
+
         foods.forEach((food) => {
           const foodObj = {
             description: food.description,
             calories: food.foodNutrients.find(
               (nutrient) => nutrient.nutrientName === "Energy"
             )?.value,
-          }
-          const li = document.createElement("li")
-          li.textContent = `name: ${foodObj.description}, calories: ${foodObj.calories}`
+          };
+          const li = document.createElement("li");
+          li.textContent = `name: ${foodObj.description}, calories: ${foodObj.calories}`;
           li.insertAdjacentHTML(
             "beforeend",
             `
-              <button data-action="click->ingredients#save">save ingredient</button>
+              <button data-action="click->ingredients#save"> <i class="fa fa-check"></i>
+              </button>
             `
-          )
-          ul.appendChild(li)
-        })
-        this.detailsTarget.insertAdjacentElement("afterbegin", ul)
+          );
+          ul.appendChild(li);
+        });
+
+        // Replace loading text with results
+        this.detailsTarget.innerHTML = ""; // Clear the loading text
+        this.detailsTarget.insertAdjacentElement("afterbegin", ul);
       })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        this.detailsTarget.innerHTML = "<p>Something went wrong. Please try again.</p>";
+      });
   }
+
 
   save(e) {
     const button = e.currentTarget
@@ -73,16 +85,18 @@ export default class extends Controller {
         "X-CSRF-Token": this.token,
       },
     }).then((response) => {
-      button.style.background = "green"
+      button.style.background = "#537D5D"
       const selectElements = this.ingredientsTargets.map((target) => {
         return target.querySelector("select")
       })
-
-      const existingOptionsCount = selectElements[0].children.length
+      const existingOptions = selectElements[0].children
+      // for debug console.log(existingOptions)
+      const lastId = Number.parseInt(existingOptions[existingOptions.length - 1].value) + 1
+      // for debug console.log(lastId)
       selectElements.forEach((selectElement) => {
         selectElement.insertAdjacentHTML(
           "beforeend",
-          `<option value=${existingOptionsCount}>${name}</option>`
+          `<option value=${lastId.toString()}>${name}</option>`
         )
       })
     })

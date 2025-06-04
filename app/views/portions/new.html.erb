@@ -16,7 +16,7 @@
         <p>Please review the food items and quantities you've added before submitting this meal.</p>
 
         <%= render "meals/details", meal: @meal %>
-        <% if @meal.portions.empty? %>
+        <% if @meal.portions.persisted.empty? %>
           <%= link_to "Quit?", meal_path(@meal), class:"float-end btn btn-lg btn-query", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% else%>
           <%= link_to "Confirm", meals_path, class:"float-end btn btn-lg btn-tracker" %>
