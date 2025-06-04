@@ -1,6 +1,5 @@
 <div class="container-image text-center">
-    <h2>Total Calories <span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span> kcal</h2>
-    <h2 class="text-center">Calorie Breakdown for <%= @date.strftime("%A, %B %-d, %Y") %> :</h2>
+    <h2 class="text-center">Calorie Breakdown</h2>
     <ul>
       <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories.to_i %> kcal</li>
       <li><strong>Lunch</strong>: <%= @lunches.total_calories.to_i %> kcal</li>
@@ -143,3 +142,5 @@
 
   </div>
 </div>
+
+<div class="fixed  kpi-circle"><span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span></div>

@@ -39,7 +39,7 @@ export default class extends Controller {
           };
           const li = document.createElement("li");
           li.classList = "search-result";
-          li.textContent = `Name: ${foodObj.description}, Calories: ${foodObj.calories}`;
+          li.textContent = `name: ${foodObj.description}, calories: ${foodObj.calories}`;
           li.insertAdjacentHTML(
             "beforeend",
             `
@@ -91,8 +91,10 @@ export default class extends Controller {
         return target.querySelector("select")
       })
       const existingOptions = selectElements[0].children
+      console.log(existingOptions)
       // for debug console.log(existingOptions)
       const lastId = Number.parseInt(existingOptions[existingOptions.length - 1].value) + 1
+      console.log(lastId)
       // for debug console.log(lastId)
       selectElements.forEach((selectElement) => {
         selectElement.insertAdjacentHTML(
