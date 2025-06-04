@@ -1,10 +1,10 @@
-<div class="container-image text-center" style="height: 180px;">
+<div class="container-image text-center" style="height: 180px; position: relative;">
     <h2>Stay on Track - Weekly Calorie Summary</h2>
-    <%= link_to "< Daily", meals_path %>
+    <%= link_to "< Daily", meals_path, class: "daily-button"%>
 </div>
 
 
-<div class="container w-50 chart-background">
+<div class="container w-50 chart-background mt-4">
   <%= bar_chart @calories_by_day,
     xtitle: "kcal",
     xtitlecolor: "#074B2B",
