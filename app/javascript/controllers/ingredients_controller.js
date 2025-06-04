@@ -96,9 +96,7 @@ export default class extends Controller {
       const ids = existingOptions.map(option => Number.parseInt(option.value)).filter(Boolean)
       console.log(ids)
       const lastId = Math.max(...ids) + 1  //ids = array, Math.max seperate each value, ... turn an array to a seperate value
-      console.log(existingOptions)
       // for debug console.log(existingOptions)
-      console.log(lastId)
       // for debug console.log(lastId)
       selectElements.forEach((selectElement) => {
         selectElement.insertAdjacentHTML(
