@@ -89,12 +89,14 @@ export default class extends Controller {
       const selectElements = this.ingredientsTargets.map((target) => {
         return target.querySelector("select")
       })
-
-      const existingOptionsCount = selectElements[0].children.length
+      const existingOptions = selectElements[0].children
+      // for debug console.log(existingOptions)
+      const lastId = Number.parseInt(existingOptions[existingOptions.length - 1].value) + 1
+      // for debug console.log(lastId)
       selectElements.forEach((selectElement) => {
         selectElement.insertAdjacentHTML(
           "beforeend",
-          `<option value=${existingOptionsCount}>${name}</option>`
+          `<option value=${lastId.toString()}>${name}</option>`
         )
       })
     })
