@@ -13,39 +13,52 @@
 
 
   </div>%>
-</div
->
+</div>
 <div class="container-spaced-evenly">
-      <%= link_to "< Back", account_path %>
+  <div>
+    <%= link_to "< Back", account_path %>
+  </div>
   <% unless @date == nil %>
-    <%= link_to "Previous day", meals_path(date: (@date - 1)) %>
-    <%= @date.strftime("%A, %B %-d, %Y")  %>
-    <% if @date < Date.today%>
-      <%= link_to "Next day", meals_path(date: (@date + 1)) %>
-    <% end %>
+    <div>
+      <%= link_to "< Previous day", meals_path(date: (@date - 1)) %>
+    </div>
+
+    <div class="text-info-deep-green">
+      <%= @date.strftime("%A, %B %-d, %Y")  %>
+    </div>
+
+    <div>
+      <% if @date < Date.today%>
+        <%= link_to "Next day >", meals_path(date: (@date + 1)) %>
+      <% else %>
+      <p class="text-grey">
+        <%= "Next day >" %>
+      </p>
+      <% end %>
+    </div>
   <% end %>
-        <%= link_to "Weekly >", trend_path %>
+  <div>
+    <%= link_to "Weekly >", trend_path %>
+  </div>
 </div>
 
-
-
-<ul class="nav nav-tabs container-centered-flex" id="myTab" role="tablist">
+<ul class="nav nav-pills container-centered-flex" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link text-inactive-tab active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Breakfast</button>
+    <button class="nav-link text-inactive-tab active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="home-pill-pane" aria-selected="true">Breakfast</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link text-inactive-tab" id="lunch-tab" data-bs-toggle="tab" data-bs-target="#lunch-tab-pane" type="button" role="tab" aria-controls="lunch-tab-pane" aria-selected="false">Lunch</button>
+    <button class="nav-link text-inactive-tab" id="pills-lunch-tab" data-bs-toggle="pill" data-bs-target="#pills-lunch" type="button" role="tab" aria-controls="lunch-pill-pane" aria-selected="false">Lunch</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link text-inactive-tab" id="dinner-tab" data-bs-toggle="tab" data-bs-target="#dinner-tab-pane" type="button" role="tab" aria-controls="dinner-tab-pane" aria-selected="false">Dinner</button>
+    <button class="nav-link text-inactive-tab" id="pills-dinner-tab" data-bs-toggle="pill" data-bs-target="#pills-dinner" type="button" role="tab" aria-controls="dinner-pill-pane" aria-selected="false">Dinner</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link text-inactive-tab" id="snack-tab" data-bs-toggle="tab" data-bs-target="#snack-tab-pane" type="button" role="tab" aria-controls="snack-tab-pane" aria-selected="false">Snack</button>
+    <button class="nav-link text-inactive-tab" id="pills-snack-tab" data-bs-toggle="pill" data-bs-target="#pills-snack" type="button" role="tab" aria-controls="snack-pill-pane" aria-selected="false">Snack</button>
   </li>
 </ul>
 
-<div class="tab-content container-centered-flex" id="myTabContent">
-  <div class="tab-pane fade show active card-tracker" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+<div class="tab-content container-centered-flex" id="pillsTabContent">
+  <div class="tab-pane fade show active card-tracker" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <% if @breakfasts.present?  %>
       <h3>Breakfast: </h3>
         <% @breakfasts.each do |breakfast| %>
@@ -65,7 +78,7 @@
     <% end %>
 
   </div>
-  <div class="tab-pane fade card-tracker" id="lunch-tab-pane" role="tabpanel" aria-labelledby="lunch-tab" tabindex="0">
+  <div class="tab-pane fade card-tracker" id="pills-lunch" role="tabpanel" aria-labelledby="pills-lunch-tab" tabindex="0">
       <% if @lunches.present?  %>
         <h3>Lunch: </h3>
         <% @lunches.each do |lunch| %>
@@ -85,7 +98,7 @@
       <% end %>
   </div>
 
-  <div class="dinner-breakdown tab-pane fade card-tracker" id="dinner-tab-pane" role="tabpanel" aria-labelledby="dinner-tab" tabindex="0">
+  <div class="dinner-breakdown tab-pane fade card-tracker" id="pills-dinner" role="tabpanel" aria-labelledby="pills-dinner" tabindex="0">
     <% if @dinners.present? %>
       <h3>Dinner: </h3>
 
@@ -108,7 +121,7 @@
     <% end %>
   </div>
 
-  <div class="tab-pane fade card-tracker" id="snack-tab-pane" role="tabpanel" aria-labelledby="snack-tab" tabindex="0"><% if @snacks.present? %>
+  <div class="tab-pane fade card-tracker" id="pills-snack" role="tabpanel" aria-labelledby="pills-snack-tab" tabindex="0"><% if @snacks.present? %>
     <h3>Snacks: </h3>
     <% @snacks.each do |snack| %>
       <% snack.portions.each do |portion| %>

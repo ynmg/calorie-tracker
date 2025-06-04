@@ -29,10 +29,16 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.text-info-deep-green {
+  padding:9px;
+  background-color: $deep-green;
+  border-radius: 7px;
+  color: white;
+}
 
 .container-spaced-evenly {
+  display: flex;
   padding: 40px;
-  display:flex;
   justify-content: space-between;
 }
 
