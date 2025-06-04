@@ -19,6 +19,7 @@
       <%= link_to "< Back", account_path %>
   <% unless @date == nil %>
     <%= link_to "Previous day", meals_path(date: (@date - 1)) %>
+    <%= @date.strftime("%A, %B %-d, %Y")  %>
     <% if @date < Date.today%>
       <%= link_to "Next day", meals_path(date: (@date + 1)) %>
     <% end %>
