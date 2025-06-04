@@ -1,6 +1,6 @@
 <%= simple_form_for [@meal, @portion] do |portion_fields| %>
   <div data-ingredients-target="ingredients">
-    <%= portion_fields.association :ingredient, collection: Ingredient.all, prompt: "Select ingredient" %>
+    <%= portion_fields.association :ingredient, collection: Ingredient.all.order(:name), prompt: "Select ingredient" %>
   </div>
   <button type="button" class="btn btn-outline-dark-green" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Find new ingredients

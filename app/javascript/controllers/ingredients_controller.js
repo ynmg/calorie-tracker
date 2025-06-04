@@ -90,10 +90,14 @@ export default class extends Controller {
       const selectElements = this.ingredientsTargets.map((target) => {
         return target.querySelector("select")
       })
-      const existingOptions = selectElements[0].children
+      const existingOptionsCollection = selectElements[0].children //html
+      const existingOptions = Array.from(existingOptionsCollection)  //first one value is not a number -> select ingredient
+      // find highest number in array
+      const ids = existingOptions.map(option => Number.parseInt(option.value)).filter(Boolean)
+      console.log(ids)
+      const lastId = Math.max(...ids) + 1  //ids = array, Math.max seperate each value, ... turn an array to a seperate value
       console.log(existingOptions)
       // for debug console.log(existingOptions)
-      const lastId = Number.parseInt(existingOptions[existingOptions.length - 1].value) + 1
       console.log(lastId)
       // for debug console.log(lastId)
       selectElements.forEach((selectElement) => {
