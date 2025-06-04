@@ -52,6 +52,12 @@ quote3 = MotivationalQuote.create!(content: "Track it to crack it!")
 quote4 = MotivationalQuote.create!(content: "Healthy habits start with your plate")
 quote5 = MotivationalQuote.create!(content: "Less sugar, more smiles")
 quote6 = MotivationalQuote.create!(content: "Healthy food, happy mood")
-quote7 = MotivationalQuote.create!(content: "Five veggs a day keeps illness away")
+quote7 = MotivationalQuote.create!(content: "Five fruit and veg a day keeps illness away")
+quote8 = MotivationalQuote.create!(content: "Take care of your body. It's the only place you have to live")
+quote9 = MotivationalQuote.create!(content: "Your diet is a bank account. Every good food choice is an investment")
+quote10 = MotivationalQuote.create!(content: "'Let food be thy medicine and medicine be thy food.' - Hippocrates ")
+quote11 = MotivationalQuote.create!(content: "He who takes medicine and neglects to diet wastes the skill of his doctors")
+quote12 = MotivationalQuote.create!(content: "Health is not about the weight you lose, but about the life, you gain")
+quote13 = MotivationalQuote.create!(content: "Start where you are, use what you have, do what you can")
 
 puts "#{MotivationalQuote.count} quotes created"
