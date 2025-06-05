@@ -1,21 +1,23 @@
 <div class="container-full" data-controller="ingredients" data-ingredients-url-value="<%= ingredients_url %>">
   <div class="form-wide">
-    <div class="meals-grid ">
+    <div class="meals-grid">
       <%= simple_form_for @meal do |f| %>
         <%= render 'meals/meal_fields', f: f %>
         <div data-controller="toggle">
           <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Choose ingredients</button>
           <div data-toggle-target="togglableElement" class="d-none">
             <%= f.simple_fields_for :portions do |portion_fields| %>
-              <div data-ingredients-target="ingredients">
+              <div data-ingredients-target="ingredients" class="weight-space">
                 <%= portion_fields.association :ingredient, collection: Ingredient.all.order(:name), prompt: "Select ingredient" %>
               </div>
               <button type="button" class="btn btn-outline-dark-green" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Find new ingredients
               </button>
-              <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+              <div class="weight-space">
+                <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
+              </div>
             <% end %>
-            <%= f.submit "Add", class:"btn btn-lg btn-signup" %>
+            <%= f.submit "Add", class:"btn btn-signup meals-button" %>
           </div>
         </div>
       <% end %>
