@@ -13,9 +13,10 @@
               <button type="button" class="btn btn-outline-dark-green" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Find new ingredients
               </button>
-              <div class="weight-space">
-                <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in grams" %>
-              </div>
+
+             <div class="weight-space">
+              <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in g/ml " %>
+             </div>
             <% end %>
             <%= f.submit "Add", class:"btn btn-signup meals-button" %>
           </div>
