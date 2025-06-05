@@ -32,7 +32,7 @@ export default class extends Controller {
 
         foods.forEach((food) => {
           const foodObj = {
-            description: food.description,
+            description: this.formatDescription(food.description),
             calories: food.foodNutrients.find(
               (nutrient) => nutrient.nutrientName === "Energy"
             )?.value,
@@ -60,6 +60,12 @@ export default class extends Controller {
       });
   }
 
+  formatDescription = (description) => {
+    if (!description) {
+      return "";
+    }
+    return description.charAt(0).toUpperCase() + description.slice(1).toLowerCase();
+  };
 
   save(e) {
     const button = e.currentTarget
