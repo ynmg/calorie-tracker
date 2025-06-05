@@ -1,12 +1,12 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://master-7rqtwti-znj23gdadsstc.piximizer.px.at/w_1200,h_800,q_80,f_cover,cx_1,cy_0,cw_2994,ch_1996,v_a7622f2ef8/fileadmin/amc.info/6-Blog/en-gb/Article_17_Green_Food_Header.jpg);">
   <div class="container">
-    <h1>Stay on Track, One Bite at a Time</h1>
-    <p>Build a healthier routine with mindful tracking and daily progress</p>
-    <p>Simple tracking. Smarter habits. Real results.</p>
-    <%# choose one or change the description above %>
+    <h1 style="margin-bottom: 16px;">Stay on Track, One Bite at a Time</h1>
+    <p style="padding-left: 1em;">  1. Log your meals easily.</p>
+    <p style="padding-left: 1em;"> 2. Monitor your calories and track your progress.</p>
+    <p style="padding-left: 1em;"> 3. Stay motivated and reach your goals.</p>
     <% if user_signed_in? %>
-      <p>Welcome Back! <%= current_user.username%></p>
+      <p style="margin-top: 20px;">Welcome Back! <%= current_user.username%></p>
       <a class="btn btn-dark-green start-button" href="/account">Start your journey</a>
     <% else %>
       <a class="btn btn-dark-green start-button" href="users/sign_in">Get Started</a>
