@@ -1,10 +1,10 @@
 <div class="container-image text-center">
     <h2 class="text-center">Calorie Breakdown</h2>
     <ul>
-      <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories.to_i %> kcal</li>
-      <li><strong>Lunch</strong>: <%= @lunches.total_calories.to_i %> kcal</li>
-      <li><strong>Dinner</strong>: <%= @dinners.total_calories.to_i %> kcal</li>
-      <li><strong>Snacks</strong>: <%= @snacks.total_calories.to_i %> kcal</li>
+      <li><strong>Breakfast</strong>: <%= @breakfasts.total_calories.round.to_i %> kcal</li>
+      <li><strong>Lunch</strong>: <%= @lunches.total_calories.round.to_i %> kcal</li>
+      <li><strong>Dinner</strong>: <%= @dinners.total_calories.round.to_i %> kcal</li>
+      <li><strong>Snacks</strong>: <%= @snacks.total_calories.round.to_i %> kcal</li>
         <%# link_to "Delete", meal_path(breakdown[:id]), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" #%>
     </ul>
 
@@ -66,12 +66,12 @@
           <% end %>
           <hr>
           <p>
-            <strong>Total for meal: <%= breakfast.total_calories.to_i %> kcal</strong>
+            <strong>Total for meal: <%= breakfast.total_calories.round.to_i %> kcal</strong>
             <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(breakfast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           </p>
         <% end %>
         <hr>
-        <strong>Total breakfast calories: <%= @breakfasts.total_calories.to_i %> kcal</strong>
+        <strong>Total breakfast calories: <%= @breakfasts.total_calories.round.to_i %> kcal</strong>
     <% else %>
       <h6>No breakfast to show.</h6>
     <% end %>
@@ -86,12 +86,12 @@
           <% end %>
           <hr>
           <p>
-            <strong>Total for meal: <%= lunch.total_calories.to_i %> kcal</strong>
+            <strong>Total for meal: <%= lunch.total_calories.round.to_i %> kcal</strong>
             <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(lunch), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           </p>
         <% end %>
         <hr>
-        <strong>Total lunch calories: <%= @lunches.total_calories.to_i %> kcal</strong>
+        <strong>Total lunch calories: <%= @lunches.total_calories.round.to_i %> kcal</strong>
       <% else %>
         <h6>No lunch to show.</h6>
       <% end %>
@@ -109,12 +109,12 @@
         <% end %>
         <hr>
         <p>
-          <strong>total for meal: <%= dinner.total_calories.to_i %> kcal</strong>
+          <strong>total for meal: <%= dinner.total_calories.round.to_i %> kcal</strong>
           <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(dinner), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </p>
       <% end %>
       <hr>
-      <strong>Total dinner calories: <%= @dinners.total_calories.to_i %> kcal</strong>
+      <strong>Total dinner calories: <%= @dinners.total_calories.round.to_i %> kcal</strong>
     <% else %>
         <h6>No dinner to show.</h6>
     <% end %>
@@ -130,12 +130,12 @@
         <% end %>
         <hr>
         <p>
-          <strong>total for meal: <%= snack.total_calories.to_i %> kcal</strong>
+          <strong>total for meal: <%= snack.total_calories.round.to_i %> kcal</strong>
           <%= link_to "<i class='fa fa-trash'></i>".html_safe, meal_path(snack), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </p>
       <% end %>
       <hr>
-      <strong>Total snacks calories: <%= @snacks.total_calories.to_i %> kcal</strong>
+      <strong>Total snacks calories: <%= @snacks.total_calories.round.to_i %> kcal</strong>
     <% else %>
         <h6>No snack to show.</h6>
     <% end %>
@@ -143,4 +143,4 @@
   </div>
 </div>
 
-<div class="fixed  kpi-circle"><span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.to_i %>">0</span></div>
+<div class="fixed  kpi-circle"><span data-controller="counter" data-counter-end-value="<%= @meals.total_calories.round.to_i %>">0</span></div>
