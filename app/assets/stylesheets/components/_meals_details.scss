@@ -23,9 +23,19 @@
 
 .weight-space {
   margin-right: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .meals-button {
-  width: 100px;
+  // width: 100px;
+  background: linear-gradient(to right,  $dark_green, $light_green );
+  color: white;
+  border: none;
+  border-radius: 7px;
+  width: 95%;
+
+}
+
+.meals-button:hover {
+  color: $bright_green;
 }

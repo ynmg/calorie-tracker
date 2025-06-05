@@ -1,12 +1,14 @@
 <%= simple_form_for [@meal, @portion] do |portion_fields| %>
-  <div data-ingredients-target="ingredients">
-    <%= portion_fields.association :ingredient, collection: Ingredient.all.order(:name), prompt: "Select ingredient" %>
+  <div data-ingredients-target="ingredients" class="weight-space">
+    <%= portion_fields.association :ingredient, collection: Ingredient.all.order(:name), prompt: "Select ingredient", label:false %>
   </div>
-  <button type="button" class="btn btn-outline-dark-green" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-outline-dark-green" style="width: 180px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Find new ingredients
   </button>
-  <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in g/mL" %>
-  <%= portion_fields.submit "Add", class:"btn btn-lg btn-signup"%>
+  <div class="weight-space">
+    <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in g/mL" %>
+  </div>
+  <%= portion_fields.submit "Add", class:"btn btn-lg meals-button"%>
 <% end %>
 
 <%= render 'ingredients/modal' %>

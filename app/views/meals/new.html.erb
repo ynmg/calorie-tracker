@@ -4,21 +4,21 @@
       <%= simple_form_for @meal do |f| %>
         <%= render 'meals/meal_fields', f: f %>
         <div data-controller="toggle">
-          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green">Choose ingredients</button>
+          <button data-action="click->toggle#fire" class="btn btn-outline-dark-green" style="width: 180px;">Choose ingredients</button>
           <div data-toggle-target="togglableElement" class="d-none">
             <%= f.simple_fields_for :portions do |portion_fields| %>
               <div data-ingredients-target="ingredients" class="weight-space">
                 <%= portion_fields.association :ingredient, label:false, collection: Ingredient.all.order(:name), prompt: "Select ingredient" %>
               </div>
-              <button type="button" class="btn btn-outline-dark-green" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="button" class="btn btn-outline-dark-green" style="width: 180px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Find new ingredients
               </button>
 
               <div class="weight-space">
-                <%= portion_fields.input :quantity, label: false, placeholder:"Weight in g/ml " %>
+                <%= portion_fields.input :quantity, label:"Weight", placeholder:"Weight in g/ml " %>
               </div>
             <% end %>
-            <%= f.submit "Add", class:"btn btn-signup meals-button" %>
+            <%= f.submit "Add", class:"btn btn-lg meals-button" %>
           </div>
         </div>
       <% end %>
