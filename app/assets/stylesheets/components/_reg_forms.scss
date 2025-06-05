@@ -132,3 +132,7 @@
     text-align: center;
   }
 }
+
+nav-link {
+  background-color: var(--bs-nav-pills-link-dark-bg, $medium_green);
+}
