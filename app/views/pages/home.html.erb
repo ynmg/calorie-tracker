@@ -7,9 +7,10 @@
     <p style="padding-left: 1em;"> 3. Stay motivated and reach your goals.</p>
     <% if user_signed_in? %>
       <p style="margin-top: 20px;">Welcome Back! <%= current_user.username%></p>
-      <a class="btn btn-dark-green start-button" href="/account">Start your journey</a>
+      <br>
+      <a class="btn btn-lg btn-dark-green start-button" href="/account">Start your journey</a>
     <% else %>
-      <a class="btn btn-dark-green start-button" href="users/sign_in">Get Started</a>
+      <a class="btn btn-lg btn-dark-green start-button" href="users/sign_in">Get Started</a>
     <% end %>
   </div>
 </div>
