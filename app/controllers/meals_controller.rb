@@ -14,14 +14,14 @@ class MealsController < ApplicationController
   end
 
   def trend
-    @meals = current_user.meals.where(date: Date.today)
+    # @meals = current_user.meals.where(date: Date.today)
     # return an array of all Meal objects with ingredients & poritons of user without looping extra enquiries within the past 7 days
     recent_meals = current_user.meals.includes(portions: :ingredient).where("created_at >= ?", 7.days.ago)
 
     # replace array of meals with the sum of their total_calories
     # line 16: return a hash with an array of Meal objects(values) and the created date(key)
     # line 17: calculate the sum of total calories of all meals in the array of that day
-    raw_calories_by_day = recent_meals.group_by { |meal| meal.created_at.to_date.to_s }
+    raw_calories_by_day = recent_meals.group_by { |meal| meal.date.to_date.to_s }
       .transform_values { |meals| meals.sum { |meal| meal.total_calories } }
 
     # included days with 0 calories in the line graph
