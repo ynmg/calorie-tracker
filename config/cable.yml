@@ -1,0 +1,9 @@
+development:
+  adapter: solid_cable
+  silence_pulling: true
+
+test:
+  adapter: test
+
+production:
+  adapter: solid_cable
