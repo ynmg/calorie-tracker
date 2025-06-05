@@ -48,7 +48,10 @@
 
 .text-inactive-tab:hover {
   color: $bright_green;
-  font-weight: bolder;
+}
+
+.text-active-tab:hover {
+ color: $bright_green;
 }
 
 .container-centered-flex {
